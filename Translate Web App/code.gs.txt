@@ -1,0 +1,161 @@
+function doGet() {
+  try {
+    // // Get credentials
+    // var sheetId = '1APPy-K7qr5z-R3geDniUxec10jy54fQLkwjex4ZqqYY'; // ID of the source spreadsheet
+    // var sheetName =  'Sheet1'; // Name of the source sheet
+    // var sheetRange = 'A1:A'; // Range of cells in the source sheet
+    // var sourceEmail = Session.getActiveUser().getEmail(); // Email of the active user (running the script)
+
+    // // Spreadsheet Access Validation
+    // var emailValues = readSpreadsheet(sheetId, sheetName, sheetRange);
+    // validateEmailValues(emailValues);
+
+    // // Iterate over emailValues
+    // for (var i = 0; i < emailValues.length; i++) {
+
+    //   // Use findIndex() method to search for the email in the array
+    //   var index = emailValues[i][0] === sourceEmail;
+
+    //   //If email is found in list, schedule triggers
+    //   if (index) {
+    //     // getCredentials();
+    //     // scheduleEmailsTrigger()
+        var template = HtmlService.createTemplateFromFile('index');
+        return template.evaluate();
+    //   }
+    // }
+    // var template = HtmlService.createTemplateFromFile('Invalide_token');
+    // return template.evaluate();
+  } catch (error) {
+    // Error Handling
+    console.error('Error in doGet: ' + error);
+    throw error;
+  }
+}
+
+function browseDriveFiles() {
+  try {
+    // Get the root folder of Google Drive
+    var rootFolder = DriveApp.getRootFolder();
+
+    // Get all files in the root folder
+    var files = rootFolder.getFiles();
+
+    var fileData = [];
+
+    // Iterate through each file
+    while (files.hasNext()) {
+      var file = files.next();
+
+      // Get file information
+      var fileId = file.getId();
+      var fileName = file.getName();
+
+      // Add file information to the array
+      fileData.push([fileId, fileName]);
+    }
+
+    // Return the file information to the client side
+    return fileData;
+  } catch (error) {
+    Logger.log('Error in browseDriveFiles: ' + error);
+    throw error;
+  }
+}
+
+/**
+ * This function is executed when the web app loads.
+ * It retrieves the user's language preferences.
+ *
+ * @returns {Object} Language preferences.
+ */
+// function getPreferences() {
+//   return {
+//     originLang: PropertiesService.getUserProperties().getProperty('originLang') || '',
+//     destLang: PropertiesService.getUserProperties().getProperty('destLang') || ''
+//   };
+// }
+
+/**
+ * Handles the translation and saving of the document.
+ *
+ * @param {string} documentText The text content of the document.
+ * @param {string} origin The two-letter short form for the origin language.
+ * @param {string} dest The two-letter short form for the destination language.
+ * @param {boolean} savePrefs Whether to save the origin and destination language preferences.
+ * @returns {boolean} Indicates whether the operation was successful.
+ */
+function translateAndSaveDocument(templateDocId, origin, dest, documenttype) {
+  try {
+    // var templateDocId = "1Sx9BupFa5Vy-q2zgMGXB15kzY8C5LwyvrUsZSPCjs9w";
+    // var origin = 'hi';
+    // var dest = 'en';
+    var templateDoc = DocumentApp.openById(templateDocId);
+    var templateBody = templateDoc.getBody();
+    var templateText = templateBody.getText();
+    // if (savePrefs) {
+    //   PropertiesService.getUserProperties()
+    //     .setProperty('originLang', origin)
+    //     .setProperty('destLang', dest);
+    // }
+    const translatedText = translateText(templateText, origin, dest);
+    
+    if (documenttype == 'appendInSameFile') {
+      templateBody.appendParagraph(translatedText);
+
+      // Save the changes to the template document
+      templateDoc.saveAndClose();
+    }
+    else {
+       var newDocument = DocumentApp.create('Translated_Document_' + new Date().toISOString());
+
+      // Access the body of the new document
+      var newDocumentBody = newDocument.getBody();
+
+      // Append translated text to the new document
+      newDocumentBody.appendParagraph(translatedText);
+
+      // Save and close the new document
+      newDocument.saveAndClose();
+    }
+    
+    // if (newFile) {
+      var message = "Document is translated successfully";
+      return message;
+    // }
+    // else {
+    //   return null;
+    // }
+  } catch (error) {
+    throw new Error('Error translating and saving document: ' + error.message);
+  }
+}
+
+/**
+ * Given text, translate it from the origin language to the destination language.
+ *
+ * @param {string} text The text to translate.
+ * @param {string} origin The two-letter short form for the origin language.
+ * @param {string} dest The two-letter short form for the destination language.
+ * @returns {string} The result of the translation, or the original text if origin and dest languages are the same.
+ */
+function translateText(text, origin, dest) {
+  if (origin === dest) return text;
+  return LanguageApp.translate(text, origin, dest);
+}
+
+// /**
+//  * API endpoint to translate and save document to Drive.
+//  *
+//  * @param {Object} data The request data containing 'documentText', 'origin', and 'dest'.
+//  * @returns {Object} Object containing 'success' and 'message'.
+//  */
+// function apiTranslateAndSaveDocument(data) {
+//   try {
+//     const { documentText, origin, dest } = data;
+//     const translatedText = translateAndSaveDocument(documentText, origin, dest, false);
+//     return { success: true, message: translatedText };
+//   } catch (error) {
+//     return { success: false, message: 'Error: ' + error.message };
+//   }
+// }

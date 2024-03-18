@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <base target="_top">
+  <link rel="stylesheet" href="https://ssl.gstatic.com/docs/script/css/add-ons1.css">
+  <!-- The CSS package above applies Google styling to buttons and other elements. -->
+
+  <style>
+    .branding-below {
+      bottom: 56px;
+      top: 0;
+    }
+
+    .branding-text {
+      left: 7px;
+      position: relative;
+      top: 3px;
+    }
+
+    .col-contain {
+      overflow: hidden;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .col-one {
+      flex: 1;
+      margin-right: 10px;
+      box-sizing: border-box;
+      /* Ensure padding and border are included in the width */
+    }
+
+    .logo {
+      vertical-align: middle;
+    }
+
+    .radio-spacer {
+      height: 20px;
+    }
+
+    .width-100 {
+      width: 100%;
+    }
+
+    @media only screen and (max-width: 600px) {
+      .col-one {
+        flex: 100%;
+        margin-right: 0;
+      }
+    }
+
+    /* Style adjustment for dropdowns */
+    select {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+    }
+  </style>
+  <title>Translate Document</title>
+</head>
+
+<body>
+  <div class="sidebar branding-below">
+    <form>
+      <div class="block col-contain">
+        <div class="col-one">
+          <b>Selected text</b>
+          <div>
+            <label for="origin-dropdown">Select Origin Language:</label>
+           <select name="origin" id="origin-dropdown">
+  <option value="">Auto-detect</option>
+  <option value="en">English</option>
+  <option value="zh">Mandarin Chinese</option>
+  <option value="hi">Hindi</option>
+  <option value="es">Spanish</option>
+  <option value="fr">French</option>
+  <option value="ar">Arabic</option>
+  <option value="ru">Russian</option>
+  <option value="bn">Bengali</option>
+  <option value="pt">Portuguese</option>
+  <option value="ur">Urdu</option>
+  <option value="id">Indonesian</option>
+  <option value="de">German</option>
+  <option value="ja">Japanese</option>
+  <option value="sw">Swahili</option>
+  <option value="mr">Marathi</option>
+  <option value="te">Telugu</option>
+  <option value="wuu">Wu Chinese</option>
+  <option value="tr">Turkish</option>
+  <option value="ta">Tamil</option>
+  <option value="vi">Vietnamese</option>
+  <option value="yo">Yoruba</option>
+  <option value="it">Italian</option>
+  <option value="th">Thai</option>
+  <option value="gu">Gujarati</option>
+  <option value="jv">Javanese</option>
+  <option value="kn">Kannada</option>
+  <option value="pl">Polish</option>
+  <option value="ml">Malayalam</option>
+  <option value="my">Burmese</option>
+  <option value="su">Sunda</option>
+</select>
+          </div>
+          <div>
+            <label for="dest-dropdown">Translate into:</label>
+          <select name="dest" id="dest-dropdown">
+  <option value="en">English</option>
+  <option value="zh">Mandarin Chinese</option>
+  <option value="hi">Hindi</option>
+  <option value="es">Spanish</option>
+  <option value="fr">French</option>
+  <option value="ar">Arabic</option>
+  <option value="ru">Russian</option>
+  <option value="bn">Bengali</option>
+  <option value="pt">Portuguese</option>
+  <option value="ur">Urdu</option>
+  <option value="id">Indonesian</option>
+  <option value="de">German</option>
+  <option value="ja">Japanese</option>
+  <option value="sw">Swahili</option>
+  <option value="mr">Marathi</option>
+  <option value="te">Telugu</option>
+  <option value="wuu">Wu Chinese</option>
+  <option value="tr">Turkish</option>
+  <option value="ta">Tamil</option>
+  <option value="vi">Vietnamese</option>
+  <option value="yo">Yoruba</option>
+  <option value="it">Italian</option>
+  <option value="th">Thai</option>
+  <option value="gu">Gujarati</option>
+  <option value="jv">Javanese</option>
+  <option value="kn">Kannada</option>
+  <option value="pl">Polish</option>
+  <option value="ml">Malayalam</option>
+  <option value="my">Burmese</option>
+  <option value="su">Sunda</option>
+</select>
+          </div>
+        </div>
+      </div>
+      <div class="block">
+        <label for="document-selector">Select Document:</label>
+        <input type="file" id="document-selector" name="document" accept=".doc,.docx,.txt">
+      </div>
+      <div class="block" id="button-bar">
+        <button class="blue" id="translate-doc">Translate Document</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="sidebar bottom">
+    <img alt="Add-on logo" class="logo" src="https://www.gstatic.com/images/branding/product/1x/translate_48dp.png"
+      width="27" height="27">
+    <span class="gray branding-text">Translate sample by Google</span>
+  </div>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>
+    /**
+     * On document load, assign click handlers to each button and try to load the
+     * user's origin and destination language preferences if previously set.
+     */
+    $(function () {
+      $('#translate-doc').click(translateSelectedDocument);
+      google.script.run.withSuccessHandler(loadPreferences)
+        .withFailureHandler(showError).getPreferences();
+    });
+
+    /**
+     * Callback function that populates the origin and destination selection
+     * boxes with user preferences from the server.
+     *
+     * @param {Object} languagePrefs The saved origin and destination languages.
+     */
+    function loadPreferences(languagePrefs) {
+      $('#origin-dropdown').val(languagePrefs.originLang);
+      $('#dest-dropdown').val(languagePrefs.destLang);
+    }
+
+    /**
+     * Reads the selected document and triggers the translation process.
+     */
+    function translateSelectedDocument() {
+      const fileInput = document.getElementById('document-selector');
+      const file = fileInput.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          const documentText = e.target.result;
+          translateAndSaveDocument(documentText);
+        };
+        reader.readAsText(file);
+      } else {
+        showError('Please select a document.');
+      }
+    }
+
+    /**
+     * Translates the selected document and saves it as a new file in Google Drive.
+     *
+     * @param {string} documentText The text content of the document.
+     */
+    function translateAndSaveDocument(documentText) {
+      const origin = $('#origin-dropdown').val();
+      const dest = $('#dest-dropdown').val();
+      google.script.run
+        .withSuccessHandler(
+          function (element) {
+            element.disabled = false;
+          })
+        .withFailureHandler(
+          function (msg, element) {
+            showError(msg, $('#button-bar'));
+            element.disabled = false;
+          })
+        .withUserObject(this)
+        .translateAndSaveDocument(documentText, origin, dest, true);
+    }
+
+    /**
+     * Inserts a div that contains an error message after a given element.
+     *
+     * @param {string} msg The error message to display.
+     * @param {DOMElement} element The element after which to display the error.
+     */
+    function showError(msg, element) {
+      const div = $('<div id="error" class="error">' + msg + '</div>');
+      $(element).after(div);
+    }
+  </script>
+</body>
+
+</html>

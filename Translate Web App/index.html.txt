@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <base target="_top">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mail-Merger Page</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    @import url('https://fonts.googleapis.com/css?family=Rubik:400,500&display=swap');
+
+    body {
+      font-family: 'Rubik', sans-serif;
+      margin: 0;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column; /* Change to column for responsiveness */
+    }
+
+    .left,
+    .right {
+      width: 100%; /* Full width for both sections */
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    .left {
+      height: 300px; /* Set a fixed height for the left section */
+      background-color: black;
+      transition: 1s;
+    }
+
+    .right {
+      overflow: hidden;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      justify-content: center;
+      animation-name: left;
+      animation-duration: 1s;
+      animation-fill-mode: both;
+      animation-delay: 1s;
+      padding: 20px; /* Add padding for better spacing */
+    }
+
+    @media (min-width: 768px) {
+      .container {
+        flex-direction: row; /* Change back to row for larger screens */
+      }
+
+      .left {
+        height: 100vh; /* Full height for the left section on larger screens */
+        flex: 3; /* 60% width on larger screens */
+      }
+
+      .right {
+        flex: 3; /* 40% width on larger screens */
+        width: auto; /* Auto width on larger screens */
+        padding: 20px 40px; /* Adjust padding for larger screens */
+      }
+    }
+
+    .header>h1 {
+      margin-left: 20px;
+      color: rgb(58, 125, 214);
+    }
+
+    .header>h4 {
+      margin-top: 10px;
+      font-weight: normal;
+      font-size: 15px;
+      color: rgba(0, 0, 0, .4);
+    }
+
+    .form {
+      max-width: 80%;
+      display: flex;
+      flex-direction: column;
+      padding: 20px; /* Add padding for better spacing */
+    }
+
+    .form>p {
+      text-align: right;
+      margin-top: 10px;
+    }
+
+    .form>p>a {
+      color: #000;
+      font-size: 14px;
+    }
+
+    .form-field {
+      height: 46px;
+      padding: 0 16px;
+      border: 2px solid #ddd;
+      border-radius: 4px;
+      font-family: 'Rubik', sans-serif;
+      outline: 0;
+      transition: .2s;
+      margin-top: 20px;
+    }
+
+    .form-field:focus {
+      border-color: #0f7ef1;
+    }
+
+    .form>button {
+      padding: 12px 10px;
+      border: 0;
+      background: rgb(58, 125, 214);
+      border-radius: 3px;
+      margin-top: 10px;
+      color: #fff;
+      letter-spacing: 1px;
+      font-family: 'Rubik', sans-serif;
+      cursor: pointer; /* Add cursor pointer for better usability */
+    }
+
+    .animation {
+      animation-name: move;
+      animation-duration: .4s;
+      animation-fill-mode: both;
+      animation-delay: 2s;
+    }
+
+    .a1 {
+      animation-delay: 2s;
+    }
+
+    .a2 {
+      animation-delay: 2.1s;
+    }
+
+    .a3 {
+      animation-delay: 2.2s;
+    }
+
+    .a4 {
+      animation-delay: 2.3s;
+    }
+
+    .a5 {
+      animation-delay: 2.4s;
+    }
+
+    .a6 {
+      animation-delay: 2.5s;
+    }
+
+    @keyframes move {
+      0% {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-40px);
+      }
+
+      100% {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes left {
+      0% {
+        opacity: 0;
+        width: 0;
+      }
+
+      100% {
+        opacity: 1;
+        padding: 20px 40px;
+        width: 440px;
+      }
+    }
+
+    .form>select {
+      margin-bottom: 15px;
+      /* Add margin between the two dropdowns */
+      height: 38px; /* Adjust height for better alignment */
+    }
+
+    .box {
+      margin: -4px 16px 0px -39px;
+      height: 630px;
+      padding: 10px 0 40px 60px
+    }
+
+    .box ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      transition: all 0.5s linear;
+      top: 0
+    }
+
+    .box ul:last-of-type {
+      top: 80px
+    }
+
+    .box ul:before {
+      content: "";
+      display: block;
+      width: 0;
+      height: 100%;
+      border: 1px dashed #fff;
+      position: absolute;
+      top: 0;
+      left: 30px
+    }
+
+    .box ul li {
+      margin: 20px 60px 60px;
+      position: relative;
+      padding: 20px 20px;
+      background: #9b9b9bad;
+      color: #fff;
+      border-radius: 10px;
+      line-height: 20px;
+      width: 89%
+    }
+
+    .box ul li>span {
+      content: "";
+      display: block;
+      width: 0;
+      height: 100%;
+      border: 1px solid rgb(58, 125, 214);
+      position: absolute;
+      top: 0;
+      left: -30px
+    }
+
+    .box ul li>span:before,
+    .box ul li>span:after {
+      content: "";
+      display: block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #fff;
+      border: 2px solid rgb(58, 125, 214);
+      position: absolute;
+      left: -7.5px
+    }
+
+    .box ul li>span:before {
+      top: -10px
+    }
+
+    .box ul li>span:after {
+      top: 95%
+    }
+
+    .box .title {
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 5px
+    }
+
+    .box .info:first-letter {
+      text-transform: capitalize;
+      line-height: 1.7
+    }
+
+    .box .name {
+      margin-top: 10px;
+      text-transform: capitalize;
+      font-style: italic;
+      text-align: right;
+      margin-right: 20px
+    }
+
+    .box .time span {
+      position: absolute;
+      left: -100px;
+      color: #fff;
+      font-size: 80%;
+      font-weight: bold;
+    }
+
+    .box .time span:first-child {
+      top: -16px
+    }
+
+    .box .time span:last-child {
+      top: 94%
+    }
+
+    .arrow {
+      position: absolute;
+      top: 105%;
+      left: 22%;
+      cursor: pointer;
+      height: 20px;
+      width: 20px
+    }
+
+    .arrow:hover {
+      -webkit-animation: arrow 1s linear infinite;
+      -moz-animation: arrow 1s linear infinite;
+      -o-animation: arrow 1s linear infinite;
+      animation: arrow 1s linear infinite;
+    }
+
+    .box ul:last-of-type .arrow {
+      position: absolute;
+      top: 105%;
+      left: 22%;
+      transform: rotateX(180deg);
+      cursor: pointer;
+    }
+
+    svg {
+      width: 20px;
+      height: 20px
+    }
+    .invalid-input {
+    border: 2px solid red;
+  }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="left" style="background-image: url('https://images.pexels.com/photos/1097930/pexels-photo-1097930.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+      <div class="box">
+        <div class="header">
+          <h1 class="animation a1" style="padding-left:47px; margin-bottom: -61px;">How to use?</h1>
+        </div>
+        <ul id="first-list">
+          <li>
+            <span></span>
+            <div class="info" style="color: black;">
+              <p>
+                Mail merge is a software feature that facilitates the generation of personalized documents, including letters, envelopes, labels, or emails, by integrating a template with a data source. The procedure entails merging a primary document (File 1) stored on your drive, which contains the common text shared across all output documents, with a Google Sheet (File 2) from your Drive. Each row of the sheet includes specific details such as first name, last name, subject, email address, and sender name, contributing to the customization of the output documents.
+              </p>
+            </div>
+          </li>
+          <li>
+            <span></span>
+            <div class="title" style="color: black; font-weight: bold;">Step #01</div>
+            <div class="info" style="color: black;">
+              <p>
+                i. Access the template Google Document (File 1) for the email <a href="https://docs.google.com/document/d/1VimME5RPCwjNRRnEMzzoCu7RzzVwUhMfGMkTKiPIhpg/edit?usp=sharing" target="_blank"> click here</a>.<br>
+                ii. Download and update the document with personalized details, using placeholders like {first_name} for first name and {last_name} for last name etc.<br>
+                iii. Maintain consistency in the unchanging text across all emails.<br>
+                iv. Save the modified document for use in your email communications.<br>
+                v. Upload this document to your Google drive.
+              </p>
+            </div>
+          </li>
+          <li>
+            <span></span>
+            <div class="title" style="color: black; font-weight: bold;">Step #02</div>
+            <div class="info" style="color: black;">
+              <p>
+                i. Access the Google Sheet (File 2) for the email <a href="https://docs.google.com/spreadsheets/d/1b6W2g-wJz0QwxENn7TPKiUYXceQQib6IaYefqfpuLDM/edit?usp=sharing" target="_blank"> click here</a>.<br>
+                ii. Download and update the Sheet with data which you want to put in the template.<br>
+                iii. Save the modified sheet for use in your email communications.<br>
+                iv. Upload this sheet to your Google drive.
+              </p>
+            </div>
+          </li>
+          <li>
+            <span></span>
+            <div class="title" style="color: black; font-weight: bold;">Step #03</div>
+            <div class="info" style="color: black;">
+              <p>
+                i. Upload your files and click on the "Refresh File List" button.<br>
+                ii. Select the relevant files for your email communication.<br>
+                iii. Optionally, choose an image if you wish to include it at the top of the email.<br>
+                iv. Finalize the process by clicking on the "Generate Emails" button.
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="right">
+      <div class="header">
+        <h1 class="animation a1">Translate it!</h1>
+      </div>
+      <div class="form">
+        <button onclick="browseDrive()">Refresh File List</button> <br>
+        <label for="fileDropdown1">Select Document:</label>
+        <select id="fileDropdown1" class="form-field"></select>
+        <label for="fileDropdown2">Select Origin Language:</label>
+        <select name="fileDropdown2" id="fileDropdown2" class="form-field">
+            <option value="">Auto-detect</option>
+            <option value="en">English</option>
+            <option value="zh">Mandarin Chinese</option>
+            <option value="hi">Hindi</option>
+            <option value="es">Spanish</option>
+            <option value="fr">French</option>
+            <option value="ar">Arabic</option>
+            <option value="ru">Russian</option>
+            <option value="bn">Bengali</option>
+            <option value="pt">Portuguese</option>
+            <option value="ur">Urdu</option>
+            <option value="id">Indonesian</option>
+            <option value="de">German</option>
+            <option value="ja">Japanese</option>
+            <option value="sw">Swahili</option>
+            <option value="mr">Marathi</option>
+            <option value="te">Telugu</option>
+            <option value="wuu">Wu Chinese</option>
+            <option value="tr">Turkish</option>
+            <option value="ta">Tamil</option>
+            <option value="vi">Vietnamese</option>
+            <option value="yo">Yoruba</option>
+            <option value="it">Italian</option>
+            <option value="th">Thai</option>
+            <option value="gu">Gujarati</option>
+            <option value="jv">Javanese</option>
+            <option value="kn">Kannada</option>
+            <option value="pl">Polish</option>
+            <option value="ml">Malayalam</option>
+            <option value="my">Burmese</option>
+            <option value="su">Sunda</option>
+        </select>
+        <label for="fileDropdown3">Select Translate into:</label>
+        <select name="fileDropdown3" id="fileDropdown3" class="form-field">
+            <option value="">Auto-detect</option>
+            <option value="en">English</option>
+            <option value="zh">Mandarin Chinese</option>
+            <option value="hi">Hindi</option>
+            <option value="es">Spanish</option>
+            <option value="fr">French</option>
+            <option value="ar">Arabic</option>
+            <option value="ru">Russian</option>
+            <option value="bn">Bengali</option>
+            <option value="pt">Portuguese</option>
+            <option value="ur">Urdu</option>
+            <option value="id">Indonesian</option>
+            <option value="de">German</option>
+            <option value="ja">Japanese</option>
+            <option value="sw">Swahili</option>
+            <option value="mr">Marathi</option>
+            <option value="te">Telugu</option>
+            <option value="wuu">Wu Chinese</option>
+            <option value="tr">Turkish</option>
+            <option value="ta">Tamil</option>
+            <option value="vi">Vietnamese</option>
+            <option value="yo">Yoruba</option>
+            <option value="it">Italian</option>
+            <option value="th">Thai</option>
+            <option value="gu">Gujarati</option>
+            <option value="jv">Javanese</option>
+            <option value="kn">Kannada</option>
+            <option value="pl">Polish</option>
+            <option value="ml">Malayalam</option>
+            <option value="my">Burmese</option>
+            <option value="su">Sunda</option>
+        </select><br>
+        <div>
+          <input  type="radio" id="documentType" name="documentType" value="appendInSameFile">
+          <label class="radio-inline" for="documentType">Add translation in the same document</label>
+        </div>
+        <div>
+          <input type="radio" id="documentType2" name="documentType" value="addInNewFile">
+          <label class="radio-inline" for="documentType2">Add translation in a new document</label>
+        </div>
+        <button onclick="generateEmails()">Continue</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Function to call the browseDriveFiles function in Google Apps Script
+    function browseDrive() {
+      google.script.run.withSuccessHandler(populateDropdowns).browseDriveFiles();
+    }
+
+    // Function to populate the dropdown menus with file names
+    function populateDropdowns(fileData) {
+      populateDropdown('fileDropdown1', fileData);
+    }
+
+    // Function to populate a specific dropdown with file names
+    function populateDropdown(dropdownId, fileData) {
+      var fileDropdown = document.getElementById(dropdownId);
+
+      // Clear previous options
+      fileDropdown.innerHTML = '';
+
+      // Add an empty default option
+      var defaultOption = document.createElement('option');
+      defaultOption.text = 'Select a file';
+      defaultOption.value = '';
+      fileDropdown.add(defaultOption);
+
+      // Loop through the file data and add options to the dropdown
+      for (var i = 0; i < fileData.length; i++) {
+        var fileId = fileData[i][0];
+        var fileName = fileData[i][1];
+
+        // Create an option element for each file and append it to the dropdown
+        var fileOption = document.createElement('option');
+        fileOption.text = fileName;
+        fileOption.value = fileId;
+        fileDropdown.add(fileOption);
+      }
+    }
+
+    function generateEmails() {
+      var file1 = document.getElementById('fileDropdown1').value;
+      var item1 = document.getElementById('fileDropdown2').value;
+      var item2 = document.getElementById('fileDropdown3').value;
+      var item3 = document.querySelector('input[name="documentType"]:checked').value;
+      console.log('file1:', file1);
+      // console.log('file2:', file2);
+      // console.log('file3:', file3);
+      // console.log('item1:', item1);
+      // console.log('item2:', item2);
+      // console.log('item3:', item3);
+      // console.log('timestamp:', timestamp);
+      // Validate that files are selected
+      if (file1) {
+        // Call the createPersonalizedEmails function with selected file IDs
+        google.script.run.withSuccessHandler(showSuccessMessage).translateAndSaveDocument(file1, item1, item2, item3);
+      } else {
+        alert('Please select a file.');
+      }
+    }
+    function showSuccessMessage(result) {
+      if (result){
+      // alert(result);
+      alert(result);
+      // You can perform additional actions or UI updates here if needed
+      } else {
+        alert('Error in translation!');
+      // You can perform additional actions or UI updates here if needed
+      }
+    }
+  //   function convertToTimestamp(dateTimeString) {
+  //     var parts = dateTimeString.split(/[\/ :-]/); // Adjust the regex to include space
+  //     console.log('Parts:', parts);
+
+  //     var year = parts[0];
+  //     var month = parts[1];
+  //     var day = parts[2];
+  //     var hours = parts[3];
+  //     var minutes = parts[4];
+
+  //     // Check if the format is 12-hour clock with AM/PM
+  //     if (parts.length > 5) {
+  //       var ampm = parts[5];
+  //       if (ampm === 'PM' && hours < 12) {
+  //           hours = parseInt(hours) + 12;
+  //       }
+  //     }
+
+  //     var formattedDateTime = year + '-' + month + '-' + day + ' ' + hours + ':' + minutes;
+  //     console.log('Formatted DateTime:', formattedDateTime);
+  //     return formattedDateTime;
+  //     }
+  //     function validateBreaktime(input) {
+  //    var value = parseInt(input.value, 10);
+  //   var messageElement = document.getElementById('Breaktime');
+
+  //   if (value < 10 || value > 300) {
+  //     input.classList.add('invalid-input');
+  //     messageElement.textContent = 'Please enter a value between 10 and 300 seconds.';
+  //   } else {
+  //     input.classList.remove('invalid-input');
+  //     messageElement.textContent = '';
+  //   }
+  // }
+  </script>
+</body>
+</html>
+
+
