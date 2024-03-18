@@ -1,0 +1,1422 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <style>
+      @import url('https://fonts.googleapis.com/css?family=Rubik:400,500&display=swap');
+      body {
+        background: -webkit-linear-gradient(left, #0072ff, #00c6ff);
+      }
+      .btn-primary{
+        color: white;
+        font-weight: bold;
+        background-color: #0072ff;
+
+      }
+      .btn-secondary{
+        color: #fff;
+        background-color: #626262;
+        border: 2px solid #3e3e3e;
+      }
+      .btn-select{
+        background-color: #c8c8c8;
+      }
+      #particles-js {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    }
+      .scrollable-wrapper {
+        overflow-x: auto;
+        white-space: nowrap;
+        padding: 10px; /* Optional padding for better appearance */
+        max-width: 100%; /* Adjust max-width to fit your layout */
+        border: 1px solid #ddd; /* Optional border for better appearance */
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+    <div id="particles-js"></div> 
+    <!-- This is the header -->
+    <header class="m-5 p-0" >
+      <h1 class="text-white mb-5 p-2 text-center display-2 fw-bold container-lg">
+       <i class='fa fa-file-excel-o' style='font-size:4rem;color:white'></i>   Sheet Editor  
+      </h1> 
+
+    </header>
+    <main class="wrapper bg-white mx-auto p-2 p-sm-5 col-sm-11 col-md-9 col-lg-7 col-xl-6" style="  box-shadow: 1px 4px 22px -8px #000;">
+      <section>
+        <article>
+          <h3 class="text-center pt-4">What do you want to do?</h3>
+          <div>
+            <div
+              class="btn-group w-100 d-flex mx-auto m-3 mb-5"
+              role="group"
+              aria-label="Basic radio toggle button group"
+            >
+              <input
+                type="radio"
+                class="btn-check"
+                name="showForm"
+                value="showForm1"
+                id="btnradio1"
+                autocomplete="off"
+                checked
+              />
+              <label class="btn btn-outline-dark fw-bold" for="btnradio1"
+                >Extract Rows / Columns</label
+              >
+
+              <input
+                type="radio"
+                class="btn-check"
+                name="showForm"
+                value="showForm2"
+                id="btnradio2"
+                autocomplete="off"
+              />
+              <label class="btn btn-outline-dark fw-bold" for="btnradio2">Rename Columns</label>
+
+              <input
+                type="radio"
+                class="btn-check"
+                name="showForm"
+                value="showForm3"
+                id="btnradio3"
+                autocomplete="off"
+              />
+              <label class="btn btn-outline-dark fw-bold" for="btnradio3">Rearrange Columns</label>
+
+              <input
+                type="radio"
+                class="btn-check"
+                name="showForm"
+                value="showForm4"
+                id="btnradio4"
+                autocomplete="off"
+              />
+              <label class="btn btn-outline-dark fw-bold" for="btnradio4">Split Columns</label>
+
+              <input
+                type="radio"
+                class="btn-check"
+                name="showForm"
+                value="showForm5"
+                id="btnradio5"
+                autocomplete="off"
+              />
+              <label
+                class="btn btn-outline-dark fw-bold"
+                for="btnradio5"
+                data-bs-toggle="tooltip"
+                data-bs-placement="bottom"
+                title="Convert Rows to Columns and Column to Rows"
+                >Pivot Rows / Columns</label
+              >
+
+              <input
+                type="radio"
+                class="btn-check"
+                name="showForm"
+                value="showForm6"
+                id="btnradio6"
+                autocomplete="off"
+              />
+              <label class="btn btn-outline-dark fw-bold" for="btnradio6"
+                >Duplicate Rows / Columns</label
+              >
+
+              <input
+                type="radio"
+                class="btn-check"
+                name="showForm"
+                value="showForm7"
+                id="btnradio7"
+                autocomplete="off"
+              />
+              <label class="btn btn-outline-dark fw-bold" for="btnradio7"
+                >Delete Rows / Columns</label
+              >
+            </div>
+          </div>
+        </article>
+
+        <!-- //****************************** EXTRACT HEADERS START ***************************************************************** -->
+        <div class="container" id="showForm1" style="display: block">
+          <div class="row justify-content-center mb-4">
+            <button class="btn btn-primary col-7 col-md-6 col-lg-5" onclick="browseDrive()">
+              Refresh Sheet List
+            </button>
+          </div>
+          <form id="form1" action="" method="post">
+            <div class="w-75 mx-auto mt-5">
+              <label for="fileDropdown1" class="text-end col-4">Select Sheet:</label>
+              <select  
+                id="fileDropdown1"
+                class="form-field col-7 col-md-7 col-lg-6 btn-select mb-5"
+              ></select>
+            </div>
+
+            <p>
+              <input
+                type="radio"
+                class="form-check-input"
+                id="ext"
+                name="extractIt"
+                value="headerExtract"
+                checked
+              />
+              <label for="ext" class="form-check-label">Extract Headers Only</label>
+            </p>
+            <p>
+              <input
+                type="radio"
+                class="form-check-input"
+                id="rangeIt"
+                name="extractIt"
+                value="rowExtract"
+              />
+              <label for="rangeIt" class="form-check-label">Extract Custom Rows</label>
+            </p>
+
+            <div style="display: none; text-align: center" id="rowRange">
+              <label>Range:</label>
+              <input
+                type="number"
+                style="width: 50px; margin: auto 0px auto 10px"
+                value="1"
+                placeholder="1"
+                min="1"
+              />
+              <label>-</label>
+              <input
+                type="number"
+                style="width: 50px; margin: auto 20px auto 0px"
+                placeholder="1"
+                min="1"
+                value="10"
+              />
+            </div>
+            <p>
+              <input
+                type="radio"
+                class="form-check-input"
+                id="columnRange"
+                name="extractIt"
+                value="colExtract"
+              />
+              <label for="columnRange" class="form-check-label">Extract Custom Columns</label>
+            </p>
+            <div style="display: none; text-align: center" id="columnDropDown">
+              <label>Range:</label>
+              <input
+                type="number"
+                style="width: 50px; margin: auto 0px auto 10px"
+                value="1"
+                placeholder="1"
+                min="1"
+              />
+              <label>-</label>
+              <input
+                type="number"
+                style="width: 50px; margin: auto 20px auto 0px"
+                placeholder="1"
+                min="1"
+                value="10"
+              />
+            </div>
+            <div class="row justify-content-center">
+              <button
+                type="submit"
+                class="btn btn-secondary btn-sm col-4 my-5 fs-5"
+                onclick="extractHeader()"
+              >
+                Extract
+              </button>
+            </div>
+          </form>
+        </div>
+        <!-- ****************************** EXTRACT HEADERS END ***************************************************************** -->
+
+        <!-- ****************************** Rename Columns START ***************************************************************** -->
+
+        <div class="container" id="showForm2" style="display: none">
+          <div class="row justify-content-center mb-4">
+            <button class="btn btn-primary col-7 col-md-6 col-lg-5" onclick="browseDrive()">
+              Refresh Sheet List
+            </button>
+          </div>
+          <form id="form2" action="" method="post">
+            <div class="w-75 mx-auto mt-5">
+              <label for="fileDropdown2" class="text-end col-4">Select Sheet:</label>
+              <select
+                 
+
+                id="fileDropdown2"
+                class="form-field col-7 col-md-7 col-lg-6 btn-select mb-5"
+              ></select>
+            </div>
+            <div class="row justify-content-center mb-4">
+              <button class="btn btn-success w-25" onclick="showHead()">Show Headers</button>
+            </div>
+            <div class="container" id="showRenameHead" style="display: none">
+              <div class="row">
+                <div class="col">
+                  <div class="scrollable-wrapper row">
+                    <div class="d-inline-flex col" id="showHeaders">
+                      <!-- Add your content here -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-2">
+                <p class="text-dark mb-0 pb-0 fw-bold">Rename the headers as per your preference</p>
+                <p class="text-danger mt-0 pt-0">(Ignore if there is no change)</p>
+              </div>
+            </div>
+
+            <div class="row justify-content-center">
+              <button
+                type="submit"
+                class="btn btn-sm btn-secondary fs-5 col-4 my-5"
+                onclick="renameColumns()"
+              >
+                Rename
+              </button>
+            </div>
+          </form>
+        </div>
+        <!-- //****************************** Rename Columns END ***************************************************************** -->
+
+        <!-- //****************************** Rearrange Columns START ***************************************************************** -->
+        <div class="container" id="showForm3" style="display: none">
+          <div class="row justify-content-center mb-4">
+            <button class="btn btn-primary col-7 col-md-6 col-lg-5" onclick="browseDrive()">
+              Refresh Sheet List
+            </button>
+          </div>
+          <form id="form3" action="" method="post">
+            <div class="w-75 mx-auto mt-5">
+              <label for="fileDropdown3" class="text-end col-4">Select Sheet:</label>
+              <select
+               
+                id="fileDropdown3"
+                class="form-field col-7 col-md-7 col-lg-6 btn-select mb-5"
+              ></select>
+            </div>
+            <div class="row justify-content-center mb-4">
+              <button class="btn btn-success w-25" onclick="showHeadForRearrange()">Show Headers</button>
+            </div>
+            <div class="container" id="showRearrangeHead" style="display: none">
+              <div class="row">
+                <div class="col">
+                  <div class="scrollable-wrapper row">
+                    <div class="d-inline-flex col" id="showRearrangeHeaders">
+                      <!-- Add your content here -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+                            <div class="mt-2">
+                <p class="text-dark mb-0 pb-0 fw-bold">ReArrange the headers as per your preference</p>
+                <p class="text-danger mt-0 pt-0">(Ignore if there is no change)</p>
+              </div>
+            </div>
+
+            <div class="row justify-content-center">
+              <button
+                type="submit"
+                class="btn btn-sm btn-secondary fs-5 col-4 my-5"
+                onclick="reArrangeColumns()"
+              >
+                Re-Arrange
+              </button>
+            </div>
+          </form>
+        </div>
+        <!-- //****************************** Rearrange Columns END ***************************************************************** -->
+
+        <!-- //****************************** Split Columns START ***************************************************************** -->
+        <div class="container" id="showForm4" style="display: none">
+          <div class="row justify-content-center mb-4">
+            <button class="btn btn-primary col-7 col-md-6 col-lg-5" onclick="browseDrive()">
+              Refresh Sheet List
+            </button>
+          </div>
+          <form id="form4" action="" method="post">
+            <div class="w-75 mx-auto mt-5">
+              <label for="fileDropdown4" class="text-end col-4">Select Sheet:</label>
+              <select
+               
+                id="fileDropdown4"
+                class="form-field col-7 col-md-7 col-lg-6 btn-select mb-5"
+              ></select>
+            </div>
+            <div>
+              <div class="row mb-3">
+                <label
+                  for="delimColNum"
+                  class="col-4 col-form-label col-form-label-sm ml-3 text-end"
+                  >Enter&nbsp;Column&nbsp;Number:</label
+                >
+                <div class="col-2">
+                  <input
+                    type="number"
+                    class="border-dark form-control form-control-sm"
+                    id="delimColNum"
+                    min="1"
+                    value="1"
+                  />
+                  <span class="col-5"></span>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <label
+                  for="colFormLabelSm"
+                  class="col-4 col-form-label col-form-label-sm ml-3 text-end"
+                  >Select&nbsp;Delimiter&nbsp;:</label
+                >
+                <div class="col-3">
+                  <select
+                    name="delimiters"
+                    id="delimitValue"
+                    class="form-select-sm btn-outline-secondary"
+                     
+                  >
+                    <option selected>Select</option>
+                    <option value=" ">Space (" ")</option>
+                    <option value=",">Comma (",")</option>
+                    <option value="/">Slash ("/")</option>
+                    <option value=":">Colon (":")</option>
+                    <option value=";">Semicolon (";")</option>
+                    <option value="_">Underscore ("_")</option>
+                    <option value="|">Pipe ("|")</option>
+                    <option value="*">Asterisk ("*")</option>
+                    <option value=".">Dot (".")</option>
+                    <option value="+">Plus ("+")</option>
+                    <option value="=">Equals ("=")</option>
+                    <option value="%">Percent ("%")</option>
+                    <option value="!">Exclamation mark ("!")</option>
+                    <option value="?">Question mark ("?")</option>
+                    <option value="&">Ampersand ("&")</option>
+                    <option value="@">At symbol ("@")</option>
+                    <option value="#">Hash ("#")</option>
+                    <option value="$">Dollar sign ("$")</option>
+                    <option value="-">Hyphen ("-")</option>
+                    <option value="\">Backward Slash ("\")</option>
+                    <option value="'">Apostrophe ("'")</option>
+                    <option value="`">Backtick ("`")</option>
+                    <option value="~">Tilde ("~")</option>
+                    <option value="^">Caret ("^")</option>
+                    <option value="[">Left Square Bracket ("[")</option>
+                    <option value="]">Right Square Bracket ("]")</option>
+                    <option value="{">Left Curly Brace ("{")</option>
+                    <option value="}">Right Curly Brace ("}")</option>
+                    <option value="(">Left Parenthesis ("(")</option>
+                    <option value=")">Right Parenthesis (")")</option>
+
+
+                  </select>
+                  <span class="col-5"></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="row justify-content-center">
+              <button
+                type="submit"
+                class="btn btn-sm btn-secondary fs-5 col-4 my-5"
+                onclick="splitColumns()"
+              >
+                Split Columns
+              </button>
+            </div>
+          </form>
+        </div>
+        <!-- //****************************** Split Column END ***************************************************************** -->
+
+        <!-- //****************************** Transpose Rows START ***************************************************************** -->
+        <div class="container" id="showForm5" style="display: none">
+          <div class="row justify-content-center mb-4">
+            <button class="btn btn-primary col-7 col-md-6 col-lg-5" onclick="browseDrive()">
+              Refresh Sheet List
+            </button>
+          </div>
+          <form id="form5" action="" method="post">
+            <div class="w-75 mx-auto mt-5">
+              <label for="fileDropdown5" class="text-end col-4">Select Sheet:</label>
+              <select
+                 
+                id="fileDropdown5"
+                class="form-field col-7 col-md-7 col-lg-6 btn-select mb-5"
+              ></select>
+            </div>
+            <p>
+              <input
+                type="radio"
+                class="form-check-input"
+                id="col2row"
+                name="pivotit"
+                value="col2row"
+                checked
+              />
+              <label for="col2row" class="form-check-label">Convert Column to Rows</label>
+            </p>
+            <p>
+              <input
+                type="radio"
+                class="form-check-input"
+                id="row2col"
+                name="pivotit"
+                value="pivotrange"
+              />
+              <label for="row2col" class="form-check-label">Convert Rows to Column</label>
+            </p>
+            <div>
+              <div
+                class="col-sm-9 col-md-9 col-lg-8 col-10 mx-auto"
+                style="display: none"
+                id="pivotrange"
+              >
+                <div class="input-group input-group-sm">
+                  <span class="mx-3">Select No. of Rows to convert to Columns: </span>
+                  <input
+                    type="number"
+                    class="form-control border-dark"
+                    aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm"
+                    id="noOfRows"
+                    min="1"
+                    value="1"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <button
+                type="submit"
+                class="btn btn-sm btn-secondary fs-5 col-4 my-5"
+                onclick="transposeRows()"
+              >
+                Convert
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- //****************************** Transpose Rows End ***************************************************************** -->
+
+                <!-- ***************************  Duplicate Row / Column Start ******************* -->
+
+        <div class="container" id="showForm6" style="display: none">
+          <div class="row justify-content-center mb-4">
+            <button class="btn btn-primary col-7 col-md-6 col-lg-5" onclick="browseDrive()">
+              Refresh Sheet List
+            </button>
+          </div>
+          <form id="form6" action="" method="post">
+            <div class="w-75 mx-auto mt-5">
+              <label for="fileDropdown6" class="text-end col-4">Select Sheet:</label>
+              <select
+               
+                id="fileDropdown6"
+                class="form-field col-7 col-md-7 col-lg-6 btn-select mb-5"
+              ></select>
+            </div>
+            <p>
+              <input
+                type="radio"
+                class="form-check-input"
+                id="dupRow1"
+                name="DuplicateIt"
+                value="dupRow"
+                checked
+              />
+              <label for="dupRow1" class="form-check-label fw-bold">Duplicate Rows</label>
+            </p>
+            <div
+              class="col-sm-9 col-md-9 col-lg-8 col-10 mx-auto"
+              style="display: block"
+              id="dupRow"
+            >
+              <div class="input-group input-group-sm">
+                <span class="mx-3">Enter Row No. to Duplicate: </span>
+                <input
+                  type="number"
+                  class="form-control border-dark"
+                  aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-sm"
+                  id="rowNumber"
+                  min="1"
+                  value="1"
+                />
+              </div>
+            </div>
+            <p>
+              <input
+                type="radio"
+                class="form-check-input"
+                id="dupCol1"
+                name="DuplicateIt"
+                value="dupCol"
+              />
+              <label for="dupCol1" class="form-check-label fw-bold">Duplicate Columns</label>
+            </p>
+            <div>
+              <div
+                class="col-sm-9 col-md-9 col-lg-8 col-10 mx-auto"
+                style="display: none"
+                id="dupCol"
+              >
+                <div class="input-group input-group-sm">
+                  <span class="mx-3">Enter Column No. to Duplicate: </span>
+                  <input
+                    type="number"
+                    class="form-control border-dark"
+                    aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm"
+                    id="colNumber"
+                    min="1"
+                    value="1"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <button
+                type="submit"
+                class="btn btn-sm btn-secondary fs-5 col-4 my-5"
+                onclick="duplicate()"
+              >
+                Duplicate
+              </button>
+            </div>
+          </form>
+        </div>
+        <!-- *************************** Duplicate Row / Column  End ******************* -->
+
+                <!-- ***************************  Delete Row / Column Start ******************* -->
+
+        <div class="container" id="showForm7" style="display: none">
+          <div class="row justify-content-center mb-4">
+            <button class="btn btn-primary col-7 col-md-6 col-lg-5" onclick="browseDrive()">
+              Refresh Sheet List
+            </button>
+          </div>
+          <form id="form7" action="" method="post">
+            <div class="w-75 mx-auto mt-5">
+              <label for="fileDropdown7" class="text-end col-4">Select Sheet:</label>
+              <select
+                 
+                id="fileDropdown7"
+                class="form-field col-7 col-md-7 col-lg-6 btn-select mb-5"
+              ></select>
+            </div>
+            <p>
+              <input
+                type="radio"
+                class="form-check-input"
+                id="delRow1"
+                name="DeleteIt"
+                value="delRow"
+                checked
+              />
+              <label for="delRow1" class="form-check-label fw-bold">Delete Rows</label>
+            </p>
+            <div
+              class="col-sm-9 col-md-9 col-lg-8 col-10 mx-auto"
+              style="display: block"
+              id="delRow"
+            >
+              <div class="input-group input-group-sm">
+                <span class="mx-3">Enter Row No. to Delete: </span>
+                <input
+                  type="number"
+                  class="form-control border-dark"
+                  aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-sm"
+                  id="delrowNumber"
+                  min="1"
+                  value="1"
+                />
+              </div>
+            </div>
+            <p>
+              <input
+                type="radio"
+                class="form-check-input"
+                id="delCol1"
+                name="DeleteIt"
+                value="delCol"
+              />
+              <label for="delCol1" class="form-check-label fw-bold">Delete Columns</label>
+            </p>
+            <div>
+              <div
+                class="col-sm-8 col-md-8 col-lg-8 col-10 mx-auto"
+                style="display: none"
+                id="delCol"
+              >
+                <div class="input-group input-group-sm">
+                  <span class="mx-3">Enter Column No. to Delete: </span>
+                  <input
+                    type="number"
+                    class="form-control border-dark"
+                    aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm"
+                    id="delcolNumber"
+                    min="1"
+                    value="1"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <button
+                type="submit"
+                class="btn btn-sm btn-secondary fs-5 col-4 my-5"
+                onclick="deleteIt()"
+              >
+                Delete
+              </button>
+            </div>
+          </form>
+        </div>
+        <!-- *************************** Delete Row / Column  End ******************* -->
+      </section>
+      </section>
+    </main>
+
+    <script>
+      // Show hide Each Form
+      document.querySelectorAll('input[name="showForm"]').forEach(function (radio) {
+        radio.addEventListener('change', function (event) {
+          var selectedOption = event.target.value;
+          console.log(selectedOption);
+          // Hide all sections
+          document.getElementById('showForm1').style.display = 'none';
+          document.getElementById('showForm2').style.display = 'none';
+          document.getElementById('showForm3').style.display = 'none';
+          document.getElementById('showForm4').style.display = 'none';
+          document.getElementById('showForm5').style.display = 'none';
+          document.getElementById('showForm6').style.display = 'none';
+          document.getElementById('showForm7').style.display = 'none';
+
+          // Show the selected section
+          document.getElementById(selectedOption).style.display = 'block';
+        });
+      });
+
+      function browseDrive() {
+        google.script.run.withSuccessHandler(populateDropdowns).browseDriveFiles();
+      }
+
+      function populateDropdowns(fileData) {
+        populateDropdown('fileDropdown1', fileData);
+        populateDropdown('fileDropdown2', fileData);
+        populateDropdown('fileDropdown3', fileData);
+        populateDropdown('fileDropdown4', fileData);
+        populateDropdown('fileDropdown5', fileData);
+        populateDropdown('fileDropdown6', fileData);
+        populateDropdown('fileDropdown7', fileData);
+      }
+
+      function populateDropdown(dropdownId, fileData) {
+        var fileDropdown = document.getElementById(dropdownId);
+
+        // Clear previous options
+        fileDropdown.innerHTML = '';
+
+        // Add an empty default option
+        var defaultOption = document.createElement('option');
+        defaultOption.text = 'Select a file';
+        defaultOption.value = '';
+        fileDropdown.add(defaultOption);
+
+        // Loop through the file data and add options to the dropdown
+        for (var i = 0; i < fileData.length; i++) {
+          var fileId = fileData[i][0];
+          var fileName = fileData[i][1];
+
+          // Create an option element for each file and append it to the dropdown
+          var fileOption = document.createElement('option');
+          fileOption.text = fileName;
+          fileOption.value = fileId;
+          fileDropdown.add(fileOption);
+        }
+      }
+
+      // *************************** RENAME FUNCITON ***********************
+function showHead() {
+  // Extracting Selected Sheet
+  var sheetName = document.getElementById('fileDropdown2').value;
+  console.log('Selected Sheet: ' + sheetName);
+  if (sheetName) {
+    // Show progress bar while renaming columns
+    Swal.fire({
+      title: "Fetching Headers From Sheet",
+      html: "just wait a second",
+      timerProgressBar: true,
+      didOpen: () => {
+        Swal.showLoading();
+      }
+    });
+
+    // Call a function to fetch headers from the selected sheet
+    google.script.run
+      .withSuccessHandler(function(headers) {
+        // Close the Swal.fire dialog when the function returns successfully
+        Swal.close();
+        // Handle the result
+        displayHeaders(headers);
+      })
+      .withFailureHandler(displayError)
+      .getSheetHeaders(sheetName);
+  } else {
+    displayError('First Select The Sheet.');
+  }
+}
+
+      function displayHeaders(headers) {
+        // Get a reference to the container element
+        var container = document.getElementById('showHeaders');
+
+        // Clear any existing content
+        container.innerHTML = '';
+
+        // Loop through the headers and display them as input fields
+        headers.forEach(function (header) {
+          // Create a new input element
+          var input = document.createElement('input');
+          // Set the type and value of the input
+          input.type = 'text';
+          input.value = header;
+          // Add classes to the input
+          input.classList.add(
+            'p-2',
+            'col-5',
+            'text-center',
+            'overflow-hidden',
+            'border',
+            'border-dark'
+          );
+          // Append the input to the container
+          container.appendChild(input);
+        });
+
+        // Show the container
+        document.getElementById('showRenameHead').style.display = 'block';
+      }
+
+      function renameColumns() {
+        // Extracting Selected Sheet
+        var sheetName = document.getElementById('fileDropdown2').value;
+        // Get the updated headers
+        var updatedHeaders = [];
+        var inputs = document.querySelectorAll('#showHeaders input');
+        inputs.forEach(function (input) {
+          updatedHeaders.push(input.value);
+        });
+        if (sheetName && updatedHeaders){
+              // Show progress bar while renaming columns
+    Swal.fire({
+      title: "Renaming Columns...",
+      html: "This will be closed automatically.",
+      timerProgressBar: true,
+      didOpen: () => {
+        Swal.showLoading();
+      }
+    });
+                  // Pass the updated headers to the server-side function
+        google.script.run.withSuccessHandler(displayAlert).withFailureHandler(displayError).renameHeaders(sheetName, updatedHeaders);
+        }else{
+          displayError('First Select The Sheet. Then Click On Show Headers.');
+        }
+
+      }
+      // ********************************** END OF RENAME LOGIC *******************
+
+      // *************************** REArrange FUNCITON ***********************
+
+function showHeadForRearrange() {
+  // Extracting Selected Sheet
+  var sheetName = document.getElementById('fileDropdown3').value;
+  console.log('Selected Sheet: ' + sheetName);
+
+  if (sheetName) {
+    // Show progress bar while fetching headers
+    Swal.fire({
+      title: "Fetching Headers For Rearrangement",
+      html: "Please wait...",
+      timerProgressBar: true,
+      didOpen: () => {
+        Swal.showLoading();
+      }
+    });
+
+    // Call a function to fetch headers from the selected sheet
+    google.script.run
+      .withSuccessHandler(function(headers) {
+        // Close the Swal.fire dialog when the function returns successfully
+        Swal.close();
+        // Handle the result
+        displayForArrangeHeaders(headers);
+      })
+      .withFailureHandler(displayError)
+      .getSheetHeadersforRearrange(sheetName);
+  } else {
+    displayError('Please Select The Sheet.');
+  }
+}
+
+
+
+
+
+  function displayForArrangeHeaders(data) {
+  var headers = data.headers;
+  var columnData = data.columnData;
+
+  // Get a reference to the container element
+  var container = document.getElementById('showRearrangeHeaders');
+
+  // Clear any existing content
+  container.innerHTML = '';
+
+  // Loop through the headers and display them as select dropdowns
+  headers.forEach(function (header, index) {
+    // Create a new select element
+    var select = document.createElement('select');
+
+    // Add classes to the select element
+    select.classList.add(
+      'p-2',
+      'col-5',
+      'text-center',
+      'overflow-hidden',
+      'border',
+      'border-dark'
+    );
+
+    // Create and append options to the select element
+    headers.forEach(function (option, ind) {
+      var optionElement = document.createElement('option');
+      optionElement.value = option;
+      optionElement.textContent = option;
+      // Selecting the default value
+      if (ind === index) {
+        optionElement.selected = true; // Set the selected attribute
+      }
+      select.appendChild(optionElement);
+    });
+
+    // Append the select to the container
+    container.appendChild(select);
+  });
+
+  // Show the container
+  document.getElementById('showRearrangeHead').style.display = 'block';
+}
+
+  function reArrangeColumns() {
+    // Extracting Selected Sheet
+    var sheetName = document.getElementById('fileDropdown3').value;
+    console.log('Selected Sheet: ' + sheetName);
+
+    var headers = [];
+    // Get the newly arranged headers from the dropdowns
+    var selects = document.querySelectorAll('#showRearrangeHeaders select');
+    selects.forEach(function (select) {
+      headers.push(select.value);
+    });
+    
+    if (sheetName && headers) {
+        // Show progress bar while rearranging columns
+        Swal.fire({
+            title: "Rearranging Columns...",
+            html: "This will be closed automatically.",
+            timerProgressBar: true,
+            didOpen: () => {
+                Swal.showLoading();
+            }
+        });
+
+        // Call a function to rearrange the columns with the updated headers
+        google.script.run.withSuccessHandler(displayAlert).withFailureHandler(displayError).rearrangeColumns(sheetName, headers);
+    } else {
+        displayError('First Select The Sheet. Then Click On Show Headers.');
+    }
+}
+
+
+
+      // ********************************** END OF REArrange LOGIC *******************
+
+      
+      // *************** SPLIT COLUMNS **************************************
+      function splitColumns() {
+        // Extracting Selected Sheet
+        var sheetName = document.getElementById('fileDropdown4').value;
+        console.log('Selected Sheet: ' + sheetName);
+
+        // Extracting value for Column Number
+        var columnNo = document.getElementById('delimColNum').value;
+        console.log(columnNo);
+
+        // Extracting delimiter value
+        var delimitExpression = document.getElementById('delimitValue').value;
+        console.log('Delimiter :' + '(' + delimitExpression + ')');
+        if (sheetName &&  columnNo && delimitExpression){
+        google.script.run.withSuccessHandler(displayAlert).withFailureHandler(displayError).splitData(sheetName,columnNo,delimitExpression);
+        }else{
+        displayError('Please fill in all fields.');
+
+        }
+      }
+
+      // *************************TRANSPOSE FUNCTION *************************
+      function transposeRows() {
+          // Extracting Selected Sheet
+          var sheetName = document.getElementById('fileDropdown5').value;
+          console.log('Selected Sheet: ' + sheetName);
+
+          //Selected Radio option
+          var convert = document.querySelector('input[name="pivotit"]:checked').value;
+
+        if (sheetName){
+            if (convert === 'pivotrange' ) {
+            var numberOfRows = document.getElementById('noOfRows').value;
+            google.script.run.withSuccessHandler(displayAlert).withFailureHandler(displayError).convertRowToColumns(sheetName, numberOfRows);
+            console.log('(Rows to Columns) Number of Rows: ' + numberOfRows);
+          } else {
+            console.log('Convert Column to Rows ');
+            google.script.run.withSuccessHandler(displayAlert).withFailureHandler(displayError).convertColumnsToRows(sheetName);
+          }
+
+        }else{
+        displayError('Please Select The Sheet.');
+
+        }
+
+        }
+        //**************************** Show Hide Pivot Selections *******************
+      document.querySelectorAll('input[name="pivotit"]').forEach(function (radio) {
+        radio.addEventListener('change', function () {
+          var selectedOption = this.value;
+          // Show the selected section
+
+          if (selectedOption == 'pivotrange') {
+            document.getElementById('pivotrange').style.display = 'block';
+          } else {
+            document.getElementById('pivotrange').style.display = 'none';
+          }
+        });
+      });
+      //*************************************** End *****************************
+      <!-- //****************************** GET DATA EXTRACT HEADERS ***************************************************************** -->
+
+      function extractHeader() {
+        var sheetName = document.getElementById('fileDropdown1').value;
+        console.log('Selected Sheet: ' + sheetName);
+
+        var extractOption = document.querySelector('input[name="extractIt"]:checked').value;
+        console.log('Extraction Option: ' + extractOption);
+
+
+ if (sheetName){
+        if (extractOption === 'rowExtract') {
+          var rangeStart = document.querySelector(
+            '#rowRange input[type="number"]:nth-of-type(1)'
+          ).value;
+          var rangeEnd = document.querySelector(
+            '#rowRange input[type="number"]:nth-of-type(2)'
+          ).value;
+          // console.log('Custom Range: ' + rangeStart + ' - ' + rangeEnd);
+          console.log(extractOption);
+        } else if (extractOption === 'colExtract') {
+          var rangeStart = document.querySelector(
+            '#columnDropDown input[type="number"]:nth-of-type(1)'
+          ).value;
+          var rangeEnd = document.querySelector(
+            '#columnDropDown input[type="number"]:nth-of-type(2)'
+          ).value;
+          // console.log('Custom Range: ' + rangeStart + ' - ' + rangeEnd);
+          console.log(extractOption);
+        }
+        console.log('Custom Range: ' + rangeStart + ' - ' + rangeEnd);
+        if (extractOption === 'headerExtract' && sheetName) {
+          // Call Google Apps Script function passing the value spreadsheet
+          google.script.run.withSuccessHandler(displayAlert).withFailureHandler(displayError).extractHeader(sheetName);
+        } else if (extractOption === 'rowExtract') {
+          console.log('extractAndCopyRows');
+          // Call Google Apps Script function passing startRange and endRange
+          google.script.run
+            .withSuccessHandler(displayAlert)
+            
+            .extractAndCopyRows(sheetName, rangeStart, rangeEnd);
+        } else if (extractOption === 'colExtract') {
+          console.log('extractAndCopyColumns');
+          // Call Google Apps Script function passing startRange and endRange
+          google.script.run
+            .withSuccessHandler(displayAlert)
+            .withFailureHandler(displayError)
+            .extractAndCopyColumns(sheetName, rangeStart, rangeEnd);
+        }
+        }else{
+                  displayError('Please Select The Sheet.');
+
+        }
+      }
+
+
+      // ********************************** Duplicate Row / Column Start *************
+      // Show hide Duplicate input
+      document.querySelectorAll('input[name="DuplicateIt"]').forEach(function (radio) {
+        radio.addEventListener('change', function () {
+          var selectedOption = this.value;
+          // Show the selected section
+
+          if (selectedOption == 'dupRow') {
+            document.getElementById('dupRow').style.display = 'block';
+            document.getElementById('dupCol').style.display = 'none';
+          } else {
+            document.getElementById('dupRow').style.display = 'none';
+            document.getElementById('dupCol').style.display = 'block';
+          }
+        });
+      });
+
+      // Duplicate Row Function
+      function duplicate() {
+        // Extracting Selected Sheet
+        var sheetName = document.getElementById('fileDropdown6').value;
+        console.log('Selected Sheet: ' + sheetName);
+        if (sheetName){
+        //Selected Radio optionEditor
+        var convert = document.querySelector('input[name="DuplicateIt"]:checked').value;
+        if (convert === 'dupRow') {
+          var rowNum = document.getElementById('rowNumber').value;
+          console.log('Row Number: ' + rowNum);
+          // Call Google Apps Script function passing startRange and endRange
+          google.script.run
+            .withSuccessHandler(displayAlert)
+            .withFailureHandler(displayError)
+            .duplicateRow(sheetName, rowNum);
+
+        } else {
+          var colNum = document.getElementById('colNumber').value;
+          console.log('Col Number ' + colNum);
+          // Call Google Apps Script function passing startRange and endRange
+          google.script.run
+            .withSuccessHandler(displayAlert)
+            .withFailureHandler(displayError)
+            .duplicateColumn(sheetName, colNum);
+        }
+        }else{
+                            displayError('Please Select The Sheet.');
+
+        }
+      }
+
+      // ********************************** Duplicate Row / Column End *************
+
+       // ********************************** Delete Row / Column Start *************
+
+function deleteIt() {
+  // Extracting Selected Sheet
+  var sheetName = document.getElementById('fileDropdown7').value;
+  console.log('Selected Sheet: ' + sheetName);
+  if (sheetName) {
+    // Selected Radio option
+    var convert = document.querySelector('input[name="DeleteIt"]:checked').value;
+    if (convert === 'delRow') {
+      var rowNum = document.getElementById('delrowNumber').value;
+      console.log('Row Number: ' + rowNum);
+      // Show confirmation dialog before deleting the row
+      Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+      }).then((result) => {
+        if (result.isConfirmed) {
+          // Show auto-close alert while deleting the row
+          Swal.fire({
+            title: "Deleting...",
+            html: "This will be closed automatically.",
+            timer: 2000,
+            timerProgressBar: true,
+            didOpen: () => {
+              Swal.showLoading();
+            }
+          });
+          // Call Google Apps Script function passing startRange and endRange
+          google.script.run
+            .withSuccessHandler(displayAlert)
+            .withFailureHandler(displayError)
+            .deleteRow(sheetName, rowNum);
+        }
+      });
+    } else {
+      var colNum = document.getElementById('delcolNumber').value;
+      console.log('Col Number ' + colNum);
+      // Show confirmation dialog before deleting the column
+      Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+      }).then((result) => {
+        if (result.isConfirmed) {
+          // Show auto-close alert while deleting the column
+          Swal.fire({
+            title: "Deleting...",
+            html: "This will be closed automatically.",
+            timer: 2000,
+            timerProgressBar: true,
+            didOpen: () => {
+              Swal.showLoading();
+            }
+          });
+          // Call Google Apps Script function passing startRange and endRange
+          google.script.run
+            .withSuccessHandler(displayAlert)
+            .withFailureHandler(displayError)
+            .deleteColumn(sheetName, colNum);
+        }
+      });
+    }
+  } else {
+    displayError('Please Select The Sheet.');
+  }
+}
+
+
+      // ********************************** Delete Row / Column End *************
+
+      //****************************** DISPLAY ALERT MESSAGE  ***************************************************************** -->
+
+      function displayAlert(message) {
+        Swal.fire({
+          icon: 'success',
+          title: 'Success!',
+          text: message,
+        });
+      }
+
+      function displayError(error) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error!',
+          text: error,
+        });
+      }
+
+      document.querySelectorAll('input[name="occur"]').forEach(function (radio) {
+        radio.addEventListener('change', function () {
+          var selectedOption = this.value;
+          // Show the selected section
+
+          if (selectedOption == 'occurs') {
+            document.getElementById('twoFiles').style.display = 'block';
+          } else {
+            document.getElementById('twoFiles').style.display = 'none';
+          }
+        });
+      });
+      document.querySelectorAll('input[name="extractIt"]').forEach(function (radio) {
+        radio.addEventListener('change', function () {
+          var selectedOption = this.value;
+          // Show the selected section
+
+          if (selectedOption == 'rowExtract') {
+            document.getElementById('rowRange').style.display = 'block';
+            document.getElementById('columnDropDown').style.display = 'none';
+          } else if (selectedOption == 'colExtract') {
+            document.getElementById('columnDropDown').style.display = 'block';
+            document.getElementById('rowRange').style.display = 'none';
+          } else {
+            document.getElementById('rowRange').style.display = 'none';
+            document.getElementById('columnDropDown').style.display = 'none';
+          }
+        });
+      });
+      document.getElementById('form1').addEventListener('submit', function (event) {
+        event.preventDefault(); // This prevents the default form submission behavior
+        // You can add your custom logic here
+        console.log('Form submission prevented');
+        // If you want to submit the form via AJAX or do something else, you can do it here
+      });
+      document.getElementById('form2').addEventListener('submit', function (event) {
+        event.preventDefault(); // This prevents the default form submission behavior
+        // You can add your custom logic here
+        console.log('Form submission prevented');
+        // If you want to submit the form via AJAX or do something else, you can do it here
+      });      document.getElementById('form3').addEventListener('submit', function (event) {
+        event.preventDefault(); // This prevents the default form submission behavior
+        // You can add your custom logic here
+        console.log('Form submission prevented');
+        // If you want to submit the form via AJAX or do something else, you can do it here
+      });
+      document.getElementById('form4').addEventListener('submit', function (event) {
+        event.preventDefault(); // This prevents the default form submission behavior
+        // You can add your custom logic here
+        console.log('Form submission prevented');
+        // If you want to submit the form via AJAX or do something else, you can do it here
+      });      document.getElementById('form5').addEventListener('submit', function (event) {
+        event.preventDefault(); // This prevents the default form submission behavior
+        // You can add your custom logic here
+        console.log('Form submission prevented');
+        // If you want to submit the form via AJAX or do something else, you can do it here
+      });
+      document.getElementById('form6').addEventListener('submit', function (event) {
+        event.preventDefault(); // This prevents the default form submission behavior
+        // You can add your custom logic here
+        console.log('Form submission prevented');
+        // If you want to submit the form via AJAX or do something else, you can do it here
+      });
+            document.getElementById('form7').addEventListener('submit', function (event) {
+        event.preventDefault(); // This prevents the default form submission behavior
+        // You can add your custom logic here
+        console.log('Form submission prevented');
+        // If you want to submit the form via AJAX or do something else, you can do it here
+      });
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+
+       <script>
+        particlesJS("particles-js", {
+          "particles": {
+            "number": {
+              "value": 60,
+              "density": {
+                "enable": true,
+                "value_area": 800
+              }
+            },
+            "color": {
+              "value": "#ffffff"
+            },
+            "shape": {
+              "type": "circle",
+              "stroke": {
+                "width": 0,
+                "color": "#000000"
+              },
+              "polygon": {
+                "nb_sides": 5
+              },
+              "image": {
+                "src": "img/github.svg",
+                "width": 100,
+                "height": 100
+              }
+            },
+            "opacity": {
+              "value": 0.8,
+              "random": false,
+              "anim": {
+                "enable": false,
+                "speed": 1,
+                "opacity_min": 0.1,
+                "sync": false
+              }
+            },
+            "size": {
+              "value": 3,
+              "random": true,
+              "anim": {
+                "enable": false,
+                "speed": 40,
+                "size_min": 0.1,
+                "sync": false
+              }
+            },
+            "line_linked": {
+              "enable": true,
+              "distance": 160,
+              "color": "#ffffff",
+              "opacity": 0.4,
+              "width": 1
+            },
+            "move": {
+              "enable": true,
+              "speed": 3,
+              "direction": "none",
+              "random": false,
+              "straight": false,
+              "out_mode": "out",
+              "bounce": false,
+              "attract": {
+                "enable": false,
+                "rotateX": 600,
+                "rotateY": 1200
+              }
+            }
+          },
+          "interactivity": {
+            "detect_on": "canvas",
+            "events": {
+              "onhover": {
+                "enable": true,
+                "mode": "grab"
+              },
+              "onclick": {
+                "enable": true,
+                "mode": "push"
+              },
+              "resize": true
+            },
+            "modes": {
+              "grab": {
+                "distance": 140,
+                "line_linked": {
+                  "opacity": 1
+                }
+              },
+              "bubble": {
+                "distance": 400,
+                "size": 40,
+                "duration": 2,
+                "opacity": 8,
+                "speed": 3
+              },
+              "repulse": {
+                "distance": 200,
+                "duration": 0.4
+              },
+              "push": {
+                "particles_nb": 4
+              },
+              "remove": {
+                "particles_nb": 2
+              }
+            }
+          },
+          "retina_detect": true
+        });
+      </script>
+  </body>
+</html>

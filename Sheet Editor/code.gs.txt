@@ -1,0 +1,639 @@
+function doGet() {
+  // Function to return HTML output from the 'index' file
+  return HtmlService.createHtmlOutputFromFile('index');
+}
+
+function browseDriveFiles() {
+  try {
+
+    var files = DriveApp.searchFiles('mimeType = "application/vnd.google-apps.spreadsheet"');
+    var fileData = [];
+
+    while (files.hasNext()) {
+      var file = files.next();
+      var fileId = file.getId();
+      var fileName = file.getName();
+      fileData.push([fileId, fileName]);
+    }
+
+    return fileData;
+  } catch (error) {
+    // Log and rethrow any errors that occur during browsing
+    Logger.log('Error in browseDriveSpreadsheets: ' + error);
+    throw error;
+  }
+}
+//***************************************************GENERATE TIME SPAM******************************************************************* */
+
+function generateTimestamp(){
+  // Generate timestamp
+  var currentDate = new Date();
+  var day = currentDate.getDate();
+  var month = currentDate.toLocaleString('en', { month: 'long' }); // Get the full month name
+  var year = currentDate.getFullYear();
+  var hours = ("0" + currentDate.getHours()).slice(-2); // Add leading zero if necessary
+  var minutes = ("0" + currentDate.getMinutes()).slice(-2); // Add leading zero if necessary
+  var timestamp = day + '-' + month + '-' + year + '_' + hours + ':' + minutes;
+  return timestamp;
+}
+//***************************************************EXTRACT ROWS COlUMNS & HEADERS  START*********************************************************** */
+
+function extractHeader(spreadsheetId) {
+  try {
+    var spreadsheet = SpreadsheetApp.openById(spreadsheetId);
+    var sheet = spreadsheet.getSheets()[0]; // Get the first sheet in the spreadsheet
+
+    // Get the values of the first row
+    var firstRow = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
+    Logger.log(firstRow)
+    var parentSheetName = sheet.getName();
+    var functionName = 'ExtractHeader';
+    
+    // Generate timestamp
+    var timestamp = generateTimestamp()
+
+    // Compose new sheet name
+    var newSheetName = parentSheetName + '_' + functionName + '_' + timestamp;
+
+    // Create a new sheet with the composed name
+    var newSheet = spreadsheet.insertSheet(newSheetName);
+
+    // Append the first row to the new sheet
+    newSheet.appendRow(firstRow);
+
+    // Log debug information
+    Logger.log('Header extracted and copied to sheet: ' + newSheetName);
+
+    return "Header extraction and copying completed successfully.";
+  } catch (error) {
+    throw new Error("Header extraction and copying failed: " + error.message);
+  }
+}
+
+function extractAndCopyRows(spreadsheetId, startingRow, endingRow) {
+  try {
+    var spreadsheetId = '1RKNo2YwMpFz3-SdxPOKVDABv5P9qUul4n46BVgmdCW0';
+    var startingRow = '1';
+    var endingRow = '4';
+
+    var spreadsheet = SpreadsheetApp.openById(spreadsheetId);
+    var sheet = spreadsheet.getSheets()[0]; // Get the first sheet in the spreadsheet
+
+    // Get the first 10 rows of data and formatting
+    var range = sheet.getRange(startingRow + ":" + endingRow);
+    var values = range.getValues();
+    var backgrounds = range.getBackgrounds();
+    var fontStyles = range.getFontStyles();
+    var fontWeights = range.getFontWeights();
+    var fontSize = range.getFontSizes();
+
+    var parentSheetName = sheet.getName();
+    var functionName = 'Extract_Rows';
+    // Generate timestamp
+    var timestamp = generateTimestamp()
+
+    // Create a new sheet for extracted data
+    var newSheetName = parentSheetName + '_' + functionName + '_' + timestamp;
+    var newSheet = null;
+    var counter = 1;
+
+    // Loop until a unique name is found
+    while (newSheet === null) {
+      try {
+        newSheet = spreadsheet.insertSheet(newSheetName);
+      } catch (e) {
+        if (e.message.indexOf("already exists") !== -1) {
+          newSheetName = parentSheetName + '_' + functionName + '_' + timestamp + '_' + counter++;
+        } else {
+          throw e; // rethrow the exception if it's not related to the sheet name conflict
+        }
+      }
+    }
+
+    // Set the values and formatting in the new sheet
+    var newRange = newSheet.getRange(startingRow, 1, endingRow, values[0].length);
+    newRange.setValues(values);
+    newRange.setBackgrounds(backgrounds);
+    newRange.setFontStyles(fontStyles);
+    newRange.setFontWeights(fontWeights);
+    newRange.setFontSizes(fontSize);
+
+    return "Extraction and copying completed successfully.";
+  } catch (error) {
+    throw new Error("Extraction and copying failed: " + error.message);
+  }
+}
+
+function extractAndCopyColumns(spreadsheetId, startColumn, numColumns) {
+  try {
+    var spreadsheet = SpreadsheetApp.openById(spreadsheetId);
+    var sheet = spreadsheet.getSheets()[0]; // Get the first sheet in the spreadsheet
+
+    var startingRow = '1';
+    var endingRow =sheet.getLastRow();
+
+
+    // Get the rows of data and formatting
+    var range = sheet.getRange(startingRow, startColumn, endingRow, numColumns);
+    //var range = sheet.getRange(startingRow + ":" + endingRow);
+    var values = range.getValues();
+    var backgrounds = range.getBackgrounds();
+    var fontStyles = range.getFontStyles();
+    var fontWeights = range.getFontWeights();
+    var fontSize = range.getFontSizes();
+
+    var parentSheetName = sheet.getName();
+    var functionName = 'Extract_Columns';
+    // Generate timestamp
+    var timestamp = generateTimestamp()
+
+    // Create a new sheet for extracted data
+    var newSheetName = parentSheetName + '_' + functionName + '_' + timestamp;
+    var newSheet = null;
+    var counter = 1;
+
+    // Loop until a unique name is found
+    while (newSheet === null) {
+      try {
+        newSheet = spreadsheet.insertSheet(newSheetName);
+      } catch (e) {
+        if (e.message.indexOf("already exists") !== -1) {
+          newSheetName = parentSheetName + '_' + functionName + '_' + timestamp + '_' + counter++;
+        } else {
+          throw e; // rethrow the exception if it's not related to the sheet name conflict
+        }
+      }
+    }
+
+    // Set the values and formatting in the new sheet
+    var newRange = newSheet.getRange(startingRow, 1, endingRow, values[0].length);
+    newRange.setValues(values);
+    newRange.setBackgrounds(backgrounds);
+    newRange.setFontStyles(fontStyles);
+    newRange.setFontWeights(fontWeights);
+    newRange.setFontSizes(fontSize);
+
+    return "Extraction and copying completed successfully.";
+  } catch (error) {
+    throw new Error("Extraction and copying failed: " + error.message);
+  }
+}
+//***************************************************EXTRACT ROWS Columns & HEADERS  END*********************************************************** */
+
+//***************************************************TRANSPOS  START*********************************************************** */
+function convertRowToColumns(convertRowToColumnssheetid, value) {
+  try{
+    
+      Logger.log("Sheet ID (input): " + convertRowToColumnssheetid); // Log the initial value of sheetId
+    var ss = SpreadsheetApp.openById(convertRowToColumnssheetid);
+    Logger.log("Spreadsheet: " + ss.getName()); // Log the spreadsheet name for verification
+    var originalSheet = ss.getActiveSheet();
+    var originalSheetName = originalSheet.getName();
+    var data = originalSheet.getRange('A:A').getValues();
+    
+    
+    // Calculate the number of rows to convert into columns
+    var numRowsToConvert = Math.ceil(data.length / value);
+    Logger.log("Number of rows to convert: " + numRowsToConvert);
+    
+    var newData = [];
+    
+  // Convert every 'value' number of rows into columns
+    for (var i = 0; i < numRowsToConvert; i++) {
+      var tempRow = [];
+      for (var j = 0; j < value; j++) {
+        var dataIndex = i * value + j;
+        if (dataIndex < data.length && data[dataIndex][0] !== "") {
+          tempRow.push(data[dataIndex][0]);
+        } else {
+          tempRow.push(""); // Add empty string for any missing data
+        }
+      }
+      if (tempRow.some(function(cell) { return cell !== "" })) {
+        newData.push(tempRow);
+      }
+  }
+
+      
+      // Paste the transformed data into the new sheet
+      var newSheetName = getUniqueSheetName(ss, "Copy of " + originalSheetName);
+      var newSheet = ss.insertSheet(newSheetName);
+      
+      // Paste the transformed data into the new sheet
+      var newRange = newSheet.getRange(1, 1, newData.length, newData[0].length);
+      newRange.setValues(newData);
+
+      return ("Rows Converted To Columns Successfully In "+ newSheetName)
+  } catch (error) {
+    throw new Error("Transpos Failed: " + error.message);
+  }
+    
+}
+
+function convertColumnsToRows(convertColumnToRowsSheetId) {
+  try {
+  
+    var ss = SpreadsheetApp.openById(convertColumnToRowsSheetId);
+    Logger.log("Spreadsheet: " + ss.getName()); // Log the spreadsheet name for verification
+    var originalSheet = ss.getActiveSheet();
+    var originalData = originalSheet.getDataRange().getValues();
+    var newData = [];
+
+    // Iterate over each column
+    for (var col = 0; col < originalData[0].length; col++) {
+      var tempRow = [];
+      // Iterate over each row in the column
+      for (var row = 0; row < originalData.length; row++) {
+        // Add the value of the cell to the temporary row array
+        tempRow.push(originalData[row][col]);
+      }
+      // Add the temporary row array to the new data array
+      newData.push(tempRow);
+    }
+
+    // Create a new sheet to paste the transformed data
+    var newSheetName = getUniqueSheetName(ss, "Converted Rows");
+    var newSheet = ss.insertSheet(newSheetName);
+
+    // Paste the transformed data into the new sheet
+    var newRange = newSheet.getRange(1, 1, newData.length, newData[0].length);
+    newRange.setValues(newData);
+
+    return "Columns Converted To Rows Successfully In " + newSheetName;
+  } catch (error) {
+    throw new Error("Conversion failed: " + error.message);
+  }
+}
+
+
+// Function to generate a unique sheet name
+function getUniqueSheetName(ss, baseName) {
+  var sheetName = baseName;
+  var i = 2;
+  while (ss.getSheetByName(sheetName)) {
+    sheetName = baseName + " Copy" + i;
+    i++;
+  }
+  return sheetName;
+}
+
+//***************************************************TRANSPOS  END*********************************************************** */
+
+//***************************************************SPLIT COLUMN START*********************************************************** */
+function splitData(splitsheetID, column, splitOption) {
+  try{
+    var ss = SpreadsheetApp.openById(splitsheetID);
+  
+    // Get active sheet
+    var sheet = ss.getActiveSheet();
+    // Convert column value to integer
+    column = parseInt(column, 10);
+    // Convert column number to letter representation
+    var columnLetter = String.fromCharCode(64 + column);
+    console.log('Column Letter: ' + columnLetter);
+    
+    // Get data range based on column
+    var dataRange = sheet.getRange(columnLetter + '1:' + columnLetter + sheet.getLastRow());
+    console.log('Data Range: ' + dataRange.getA1Notation());
+    
+    // Check if the sheet exists
+    if (!sheet) {
+      throw new Error("Sheet not found");
+    }
+    
+    // Check if the data range exists
+    if (!dataRange) {
+      throw new Error("Data range not found");
+    }
+    
+    var values = dataRange.getValues();
+  
+    // Create unique sheet name
+    var baseSheetName = 'split of (' + sheet.getName() + ')';
+    var newSheetName = baseSheetName;
+    var sheetExists = true;
+    var counter = 1;
+    
+    while (sheetExists) {
+        var existingSheet = ss.getSheetByName(newSheetName);
+        if (existingSheet) {
+            newSheetName = baseSheetName + ' (' + counter + ')';
+            counter++;
+        } else {
+            sheetExists = false;
+        }
+    }
+    
+    // Insert new sheet
+    var newSheet = ss.insertSheet(newSheetName);
+  
+    // Split data and write to new sheet
+    for (var i = 0; i < values.length; i++) {
+        var rowData = values[i][0].toString().split(splitOption);
+        newSheet.getRange(i + 1, 1, 1, rowData.length).setValues([rowData]);
+    }
+        // Notify user about the completion
+    return ('Data split successfully. New sheet created: ' + newSheetName );
+
+  } catch (error) {
+    throw new Error("Column Spliting Failed: " + error.message);
+  }
+}
+
+//***************************************************SPLIT COLUMN END*********************************************************** */
+
+//***************************************************Rename START*********************************************************** */
+
+function getSheetHeaders(sheetId) {
+  try{
+    var ss = SpreadsheetApp.openById(sheetId);
+  
+    // Get active sheet
+    var sheet = ss.getActiveSheet();
+    
+    if (!sheet) {
+      throw new Error("Sheet '" + sheetName + "' not found.");
+    }
+    
+    var lastColumn = sheet.getLastColumn();
+    var headers = [];
+    
+    // Iterate through each column
+    for (var col = 1; col <= lastColumn; col++) {
+      var dataRange = sheet.getRange(2, col, sheet.getLastRow() - 1, 1); // Exclude header row
+      var values = dataRange.getValues().flat(); // Flatten the 2D array
+      
+      // Check if any non-empty cell exists in the column
+      if (values.some(cell => cell !== "")) {
+        // If data exists, add the header to the headers array
+        var header = sheet.getRange(1, col).getValue();
+        headers.push(header);
+      }
+    }
+    
+    return headers;
+  } catch (error) {
+    throw new Error("Error fetching headers: " + error.message);
+  }
+}
+
+function renameHeaders(sheetId, updatedHeaders) {
+  try {
+    var ss = SpreadsheetApp.openById(sheetId);
+  
+    // Get active sheet
+    var sheet = ss.getActiveSheet();
+    var range = sheet.getRange(1, 1, 1, updatedHeaders.length); // Assuming headers are in the first row
+
+    // Get existing formatting
+    var existingFormat = range.getFontWeights(); // Get font weights
+    var existingBackgrounds = range.getBackgrounds(); // Get cell backgrounds
+
+    // Update headers
+    range.setValues([updatedHeaders]);
+
+    // Convert font weights to strings
+    var fontWeightsStrings = existingFormat[0].map(function(weight) {
+      return weight.toString();
+    });
+
+    // Preserve existing formatting
+    range.setFontWeights([fontWeightsStrings]); // Apply font weights
+    range.setBackgrounds(existingBackgrounds); // Apply cell backgrounds
+
+    // Log success message
+    return "Headers updated successfully.";
+  } catch (error) {
+    // Log and throw error message
+    throw new Error("Error updating headers: " + error.message);
+  }
+}
+
+//***************************************************Rename End*********************************************************** */
+
+//***************************************************Rearrange Start*********************************************************** */
+function getSheetHeadersforRearrange(sheetId) {
+  try {
+    var ss = SpreadsheetApp.openById(sheetId);
+    var sheet = ss.getActiveSheet();
+    var lastColumn = sheet.getLastColumn();
+    var headers = [];
+    var columnData = [];
+
+    // Iterate through each column
+    for (var col = 1; col <= lastColumn; col++) {
+      var dataRange = sheet.getRange(1, col, sheet.getLastRow(), 1); // Include all rows
+      var values = dataRange.getValues().flat(); // Flatten the 2D array
+
+      // Check if any non-empty cell exists in the column
+      if (values.some(cell => cell !== "")) {
+        // If data exists, add the header to the headers array
+        var header = sheet.getRange(1, col).getValue();
+        headers.push(header);
+        // Add the full column data to the columnData array
+        columnData.push(values);
+      }
+    }
+
+    return { headers: headers, columnData: columnData };
+  } catch (error) {
+    throw new Error("Error fetching headers: " + error.message);
+  }
+}
+// Function to update the headers in the Google Sheet
+function rearrangeColumns(sheetName, newHeaders) {
+  try {
+    var ss = SpreadsheetApp.openById(sheetName);
+    var sheet = ss.getActiveSheet();
+
+    if (!sheet) {
+      throw new Error("Sheet '" + sheetName + "' not found.");
+    }
+
+    // Get the current headers and their corresponding ranges
+    var currentHeaders = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
+    var headerRanges = currentHeaders.map(function(header) {
+      return sheet.getRange(1, currentHeaders.indexOf(header) + 1, sheet.getLastRow(), 1);
+    });
+
+    // Initialize variables to store column data and formatting
+    var columnsToMove = [];
+    var columnFormats = [];
+
+    // Iterate through newHeaders to determine the source columns
+    for (var i = 0; i < newHeaders.length; i++) {
+      var columnIndex = currentHeaders.indexOf(newHeaders[i]) + 1;
+      if (columnIndex > 0) {
+        // Store the source column data
+        columnsToMove.push(sheet.getRange(1, columnIndex, sheet.getLastRow()).getValues());
+        // Store the source column formatting
+        columnFormats.push(headerRanges[columnIndex - 1].getBackgrounds());
+      }
+    }
+
+    // Create a new sheet to paste the rearranged data
+    var newSheetName = getUniqueSheetName(ss, 'Rearranged Of (' + sheet.getName() + ')');
+    var newSheet = ss.insertSheet(newSheetName);
+
+    // Paste the source column data and formatting to the new sheet
+    for (var j = 0; j < columnsToMove.length; j++) {
+      var destinationRange = newSheet.getRange(1, j + 1, columnsToMove[j].length, 1);
+      destinationRange.setValues(columnsToMove[j]);
+      destinationRange.setBackgrounds(columnFormats[j]);
+    }
+
+    return "Columns rearranged successfully. Data copied to sheet '" + newSheetName + "'.";
+  } catch (error) {
+    throw new Error("Error rearranging columns: " + error.message);
+  }
+}
+
+
+//***************************************************Rearrange End*********************************************************** */
+
+//***************************************************Delete Column & Row start*********************************************************** */
+function deleteColumn(sheetId, columnNumber) {
+  try {
+    var ss = SpreadsheetApp.openById(sheetId);
+    var sheet = ss.getActiveSheet();
+    
+    // Check if the column number is valid
+    if (columnNumber < 1 || columnNumber > sheet.getLastColumn()) {
+      throw new Error("Invalid column number");
+    }
+
+    // Delete the specified column
+    sheet.deleteColumn(columnNumber);
+
+    return "Column " + columnNumber + " deleted successfully";
+  } catch (error) {
+    throw new Error("Deletion failed: " + error.message);
+  }
+}
+
+function deleteRow(sheetId, rowNumber) {
+  try {
+    var ss = SpreadsheetApp.openById(sheetId);
+    var sheet = ss.getActiveSheet();
+    
+    // Check if the row number is valid
+    if (rowNumber < 1 || rowNumber > sheet.getLastRow()) {
+      throw new Error("Invalid row number");
+    }
+
+    // Delete the specified row
+    sheet.deleteRow(rowNumber);
+
+    return "Row " + rowNumber + " deleted successfully";
+  } catch (error) {
+    throw new Error("Deletion failed: " + error.message);
+  }
+}
+
+
+//***************************************************Delete Column & Row end*********************************************************** */
+//***************************************************Duplicate Column Start*********************************************************** */
+
+function duplicateColumn(sheetId, colNumber) {
+  // If duplicateCount is not provided, default it to 1
+  var columnNumber = parseInt(colNumber)
+  var duplicateCount = 1;
+
+  try {
+    var ss = SpreadsheetApp.openById(sheetId);
+    var sheet = ss.getActiveSheet();
+    
+    // Check if the column number is valid
+    if (columnNumber < 1 || columnNumber > sheet.getLastColumn()) {
+      throw new Error("Invalid column number");
+    }
+
+    // Get the range of the column to duplicate
+    var rangeToDuplicate = sheet.getRange(1, columnNumber, sheet.getLastRow(), 1);
+    var valuesToDuplicate = rangeToDuplicate.getValues();
+    var backgroundColorsToDuplicate = rangeToDuplicate.getBackgrounds();
+    var fontColorsToDuplicate = rangeToDuplicate.getFontColors();
+    var fontWeightsToDuplicate = rangeToDuplicate.getFontWeights();
+
+    // Duplicate the column 'duplicateCount' times
+    for (var i = 0; i < duplicateCount; i++) {
+      // Insert a new column to the right of the original column
+      sheet.insertColumnAfter(columnNumber);
+      // Get the newly inserted range
+      var newRange = sheet.getRange(1, columnNumber + 1, sheet.getLastRow(), 1);
+      // Set values, background colors, font colors, and font weights for the new range
+      newRange.setValues(valuesToDuplicate);
+      newRange.setBackgrounds(backgroundColorsToDuplicate);
+      newRange.setFontColors(fontColorsToDuplicate);
+      newRange.setFontWeights(fontWeightsToDuplicate);
+    }
+
+    return "Column " + (columnNumber) + " duplicated successfully"; // Adjusted the return message to reflect the correct duplicated column number
+  } catch (error) {
+    throw new Error("Duplication failed: " + error.message);
+  }
+}
+
+function duplicateRow(sheetId, rowNo) {
+  // If duplicateCount is not provided, default it to 1
+  var rowNumber = parseInt(rowNo)
+  var duplicateCount = 1;
+
+  try {
+    var ss = SpreadsheetApp.openById(sheetId);
+    var sheet = ss.getActiveSheet();
+    
+    // Check if the row number is valid
+    if (rowNumber < 1 || rowNumber > sheet.getLastRow()) {
+      throw new Error("Invalid row number");
+    }
+
+    // Get the range of the row to duplicate
+    var rangeToDuplicate = sheet.getRange(rowNumber, 1, 1, sheet.getLastColumn());
+    var valuesToDuplicate = rangeToDuplicate.getValues();
+    var backgroundColorsToDuplicate = rangeToDuplicate.getBackgrounds();
+    var fontColorsToDuplicate = rangeToDuplicate.getFontColors();
+    var fontWeightsToDuplicate = rangeToDuplicate.getFontWeights();
+
+    // Duplicate the row 'duplicateCount' times
+    for (var i = 0; i < duplicateCount; i++) {
+      // Insert a new row below the current row
+      sheet.insertRowAfter(rowNumber);
+      
+      // Get the newly inserted range
+      var newRange = sheet.getRange(rowNumber + 1, 1, 1, sheet.getLastColumn());
+      
+      // Set values, background colors, font colors, and font weights for the new range
+      newRange.setValues(valuesToDuplicate);
+      newRange.setBackgrounds(backgroundColorsToDuplicate);
+      newRange.setFontColors(fontColorsToDuplicate);
+      newRange.setFontWeights(fontWeightsToDuplicate);
+      
+      // Increment the row number for the next duplicate
+      rowNumber++;
+    }
+
+    return "Row " + rowNumber + " duplicated successfully";
+  } catch (error) {
+    throw new Error("Duplication failed: " + error.message);
+  }
+}
+
+
+//***************************************************Duplicate Column End*********************************************************** */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
