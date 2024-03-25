@@ -62,7 +62,7 @@ In other words, our website will allow the users to download two types of widget
 
 So please keep this in mind.
 
-GULREZ
+# GULREZ
 
 Great I'll proceed with HTMX
 
