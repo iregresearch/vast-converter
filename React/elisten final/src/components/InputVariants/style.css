@@ -1,0 +1,368 @@
+.input-variants {
+  align-items: flex-start;
+  gap: 10px;
+  position: relative;
+}
+
+.input-variants .frame-9 {
+  position: relative;
+}
+
+.input-variants .label-email {
+  color: var(--sidebar-background);
+  font-family: "Roboto", Helvetica;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.input-variants .frame-10 {
+  border: 2px solid;
+  border-color: var(--sidebar-background);
+  position: absolute;
+  width: 388px;
+}
+
+.input-variants .enter-label-name {
+  color: var(--input-color);
+  font-family: var(--input-text-font-family);
+  font-size: var(--input-text-font-size);
+  font-style: var(--input-text-font-style);
+  font-weight: var(--input-text-font-weight);
+  left: 20px;
+  letter-spacing: var(--input-text-letter-spacing);
+  line-height: var(--input-text-line-height);
+  position: absolute;
+  top: 8px;
+  white-space: nowrap;
+}
+
+.input-variants .select-email-list {
+  color: var(--input-color);
+  font-family: var(--input-text-font-family);
+  font-size: var(--input-text-font-size);
+  font-style: var(--input-text-font-style);
+  font-weight: var(--input-text-font-weight);
+  letter-spacing: var(--input-text-letter-spacing);
+  line-height: var(--input-text-line-height);
+  margin-top: -2px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.input-variants .vector-wrapper {
+  align-items: flex-start;
+  display: inline-flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 10px;
+  height: 22px;
+  justify-content: space-around;
+  position: relative;
+}
+
+.input-variants .vector-3 {
+  height: 9.5px;
+  margin-left: -0.75px;
+  margin-right: -0.75px;
+  position: relative;
+  transition: all 0.2s ease;
+  width: 19.5px;
+}
+
+.input-variants .reply-to-email {
+  color: var(--sidebar-background);
+  font-family: "Roboto", Helvetica;
+  font-size: 16px;
+  font-weight: 700;
+  height: 19px;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: 258px;
+}
+
+.input-variants .vector-4 {
+  height: 15px;
+  position: relative;
+  width: 15px;
+}
+
+.input-variants .rectangle {
+  border: 2px solid;
+  border-color: var(--sidebar-background);
+  height: 42px;
+  position: relative;
+  width: 388px;
+}
+
+.input-variants .vector-5 {
+  height: 10px;
+  left: 360px;
+  object-fit: cover;
+  position: absolute;
+  top: 42px;
+  width: 20px;
+}
+
+.input-variants .div-wrapper {
+  align-items: center;
+  background-color: var(--browse-background);
+  border: 2px solid;
+  border-color: var(--sidebar-background);
+  display: inline-flex;
+  gap: 10px;
+  height: 42px;
+  justify-content: center;
+  left: 0;
+  padding: 10px 20px;
+  position: absolute;
+  top: 25px;
+}
+
+.input-variants .text-wrapper-7 {
+  color: var(--sidarbar-white);
+  font-family: "Inter", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  position: relative;
+  width: fit-content;
+}
+
+.input-variants .select-email {
+  color: var(--input-color);
+  font-family: var(--input-text-font-family);
+  font-size: var(--input-text-font-size);
+  font-style: var(--input-text-font-style);
+  font-weight: var(--input-text-font-weight);
+  left: 107px;
+  letter-spacing: var(--input-text-letter-spacing);
+  line-height: var(--input-text-line-height);
+  position: absolute;
+  top: 36px;
+  white-space: nowrap;
+  width: 266px;
+}
+
+.input-variants .field-2 {
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 132px 6px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 388px;
+}
+
+.input-variants .speech-to-text-with {
+  color: var(--sidebar-background);
+  font-family: "Roboto", Helvetica;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.input-variants .rectangle-2 {
+  border: 2px solid;
+  border-color: var(--sidebar-background);
+  height: 42px;
+  position: relative;
+  transform: rotate(180deg);
+  width: 388px;
+}
+
+.input-variants .text-wrapper-8 {
+  color: var(--input-color);
+  font-family: var(--input-text-font-family);
+  font-size: var(--input-text-font-size);
+  font-style: var(--input-text-font-style);
+  font-weight: var(--input-text-font-weight);
+  left: 17px;
+  letter-spacing: var(--input-text-letter-spacing);
+  line-height: var(--input-text-line-height);
+  position: absolute;
+  top: 36px;
+  white-space: nowrap;
+  width: 292px;
+}
+
+.input-variants .vector-6 {
+  height: 10px;
+  left: 360px;
+  object-fit: cover;
+  position: absolute;
+  top: 40px;
+  width: 20px;
+}
+
+.input-variants .frame-11 {
+  align-items: center;
+  border: 2px solid;
+  border-color: var(--sidebar-background);
+  display: flex;
+  gap: 16px;
+  left: 0;
+  position: absolute;
+  top: 91px;
+  width: 388px;
+}
+
+.input-variants .frame-12 {
+  align-items: center;
+  background-color: var(--browse-background);
+  border: 2px solid;
+  border-color: var(--sidebar-background);
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 10px;
+  height: 42px;
+  justify-content: center;
+  padding: 10px 20px;
+  position: relative;
+}
+
+.input-variants .text-wrapper-9 {
+  color: var(--input-color);
+  font-family: var(--input-text-font-family);
+  font-size: var(--input-text-font-size);
+  font-style: var(--input-text-font-style);
+  font-weight: var(--input-text-font-weight);
+  height: 17px;
+  letter-spacing: var(--input-text-letter-spacing);
+  line-height: var(--input-text-line-height);
+  position: relative;
+  white-space: nowrap;
+  width: 273px;
+}
+
+.input-variants.simple {
+  display: inline-flex;
+  height: 73px;
+}
+
+.input-variants.browse {
+  display: inline-flex;
+  height: 73px;
+}
+
+.input-variants.simple-drop-down {
+  display: flex;
+  height: 73px;
+  width: 388px;
+}
+
+.input-variants.multiple {
+  display: inline-flex;
+  height: 133px;
+}
+
+.input-variants.simple .frame-9 {
+  height: 73px;
+  width: 389px;
+}
+
+.input-variants.browse .frame-9 {
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 109px 6px;
+  height: 73px;
+  width: 388px;
+}
+
+.input-variants.simple-drop-down .frame-9 {
+  align-items: flex-start;
+  display: flex;
+  justify-content: space-between;
+  width: 388px;
+}
+
+.input-variants.multiple .frame-9 {
+  height: 133px;
+  width: 388px;
+}
+
+.input-variants.simple .label-email {
+  left: 4px;
+  position: absolute;
+  top: -1px;
+  width: 258px;
+}
+
+.input-variants.browse .label-email {
+  position: absolute;
+  width: 258px;
+}
+
+.input-variants.simple-drop-down .label-email {
+  height: 19px;
+  margin-top: -1px;
+  position: relative;
+  width: 356px;
+}
+
+.input-variants.multiple .label-email {
+  position: absolute;
+  width: 258px;
+}
+
+.input-variants.simple .vector-28 {
+  height: 15px;
+  left: 370px;
+  position: absolute;
+  top: 2px;
+  width: 15px;
+}
+
+.input-variants.browse .vector-28 {
+  position: absolute;
+  width: 15px;
+}
+
+.input-variants.simple-drop-down .vector-28 {
+  position: relative;
+  width: 20px;
+}
+
+.input-variants.multiple .vector-28 {
+  position: absolute;
+  width: 15px;
+}
+
+.input-variants.simple .frame-10 {
+  height: 42px;
+  left: 1px;
+  top: 24px;
+}
+
+.input-variants.browse .frame-10 {
+  left: 1px;
+  top: 24px;
+}
+
+.input-variants.simple-drop-down .frame-10 {
+  align-items: flex-start;
+  display: flex;
+  justify-content: space-between;
+  left: 0;
+  padding: 10px 9px;
+  top: 26px;
+}
+
+.input-variants.multiple .frame-10 {
+  left: 1px;
+  top: 24px;
+}

@@ -1,0 +1,64 @@
+.buttons {
+  align-items: center;
+  display: inline-flex;
+  gap: 10px;
+  justify-content: center;
+  padding: 10px 20px;
+  position: relative;
+}
+
+.buttons .continue {
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.buttons.small-btn {
+  background-color: var(--sidebar-background);
+  border: 1px solid;
+  border-color: #00000073;
+}
+
+.buttons.lg-btn {
+  background-color: var(--sidebar-background);
+  border: 1px solid;
+  border-color: #00000073;
+}
+
+.buttons.outline-btn {
+  border: 2px solid;
+  border-color: var(--primary-heading);
+}
+
+.buttons.small-btn .continue {
+  color: #ffffff;
+  font-family: var(--small-btn-txt-font-family);
+  font-size: var(--small-btn-txt-font-size);
+  font-style: var(--small-btn-txt-font-style);
+  font-weight: var(--small-btn-txt-font-weight);
+  letter-spacing: var(--small-btn-txt-letter-spacing);
+  line-height: var(--small-btn-txt-line-height);
+  margin-top: -1px;
+}
+
+.buttons.lg-btn .continue {
+  color: #ffffff;
+  font-family: var(--button-text-font-family);
+  font-size: var(--button-text-font-size);
+  font-style: var(--button-text-font-style);
+  font-weight: var(--button-text-font-weight);
+  letter-spacing: var(--button-text-letter-spacing);
+  line-height: var(--button-text-line-height);
+  margin-top: -1px;
+}
+
+.buttons.outline-btn .continue {
+  color: var(--sidebar-background);
+  font-family: "Inter", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 22px;
+  margin-top: -2px;
+}

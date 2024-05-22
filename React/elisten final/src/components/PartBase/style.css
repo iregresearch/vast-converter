@@ -1,0 +1,305 @@
+.part-base {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  position: relative;
+  width: 200px;
+}
+
+.part-base .title-text {
+  align-items: center;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  padding: 4px 0px 0px;
+  position: relative;
+  width: 100%;
+}
+
+.part-base .title {
+  color: var(--texttextmid);
+  flex: 1;
+  margin-top: -1px;
+  position: relative;
+}
+
+.part-base .title-2 {
+  color: var(--texttextmid);
+  flex: 1;
+  font-family: var(--input-p1-title-TC-14-medium-16-font-family);
+  font-size: var(--input-p1-title-TC-14-medium-16-font-size);
+  font-style: var(--input-p1-title-TC-14-medium-16-font-style);
+  font-weight: var(--input-p1-title-TC-14-medium-16-font-weight);
+  letter-spacing: var(--input-p1-title-TC-14-medium-16-letter-spacing);
+  line-height: var(--input-p1-title-TC-14-medium-16-line-height);
+  margin-top: -1px;
+  position: relative;
+}
+
+.part-base .part-flag-marker {
+  background-image: url(../../../static/img/hero-outline-flag.svg);
+  background-size: 100% 100%;
+  height: 16px;
+  opacity: 0.4;
+  position: relative;
+  width: 16px;
+}
+
+.part-base .part-flag-marker-2 {
+  background-image: url(../../../static/img/hero-outline-copy.svg);
+  background-size: 100% 100%;
+  height: 16px;
+  opacity: 0.4;
+  position: relative;
+  width: 16px;
+}
+
+.part-base .field {
+  align-items: center;
+  align-self: stretch;
+  background-color: var(--basicwhite);
+  border: 1px solid;
+  border-color: var(--linelinedark);
+  border-radius: 4px;
+  display: flex;
+  gap: 6px;
+  position: relative;
+  width: 100%;
+}
+
+.part-base .hero-outline {
+  height: 24px !important;
+  position: relative !important;
+  width: 24px !important;
+}
+
+.part-base .label-text {
+  display: flex;
+  flex: 1;
+  flex-grow: 1;
+  position: relative;
+}
+
+.part-base .label {
+  color: var(--texttextnormal);
+  flex: 1;
+  position: relative;
+}
+
+.part-base .placeholder-hint {
+  display: flex;
+  flex: 1;
+  flex-grow: 1;
+  position: relative;
+}
+
+.part-base .label-hint {
+  color: var(--texttextlightextra);
+  flex: 1;
+  margin-top: -1px;
+  position: relative;
+}
+
+.part-base .hero-outline-angle {
+  height: 24px !important;
+  left: 176px !important;
+  position: absolute !important;
+  top: 72px !important;
+  width: 24px !important;
+}
+
+.part-base .helper-text {
+  align-items: center;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  padding: 2px 0px;
+  position: relative;
+  width: 100%;
+}
+
+.part-base .helper {
+  color: var(--texttextmidlight);
+  flex: 1;
+  font-family: var(--input-p1-help-12-regular-16-font-family);
+  font-size: var(--input-p1-help-12-regular-16-font-size);
+  font-style: var(--input-p1-help-12-regular-16-font-style);
+  font-weight: var(--input-p1-help-12-regular-16-font-weight);
+  letter-spacing: var(--input-p1-help-12-regular-16-letter-spacing);
+  line-height: var(--input-p1-help-12-regular-16-line-height);
+  margin-top: -1px;
+  position: relative;
+}
+
+.part-base.multi-line {
+  height: 144px;
+}
+
+.part-base .icon-in-title-true {
+  gap: 8px;
+}
+
+.part-base .large {
+  font-family: var(--input-p1-title-TC-14-medium-16-font-family);
+  font-size: var(--input-p1-title-TC-14-medium-16-font-size);
+  font-style: var(--input-p1-title-TC-14-medium-16-font-style);
+  font-weight: var(--input-p1-title-TC-14-medium-16-font-weight);
+  letter-spacing: var(--input-p1-title-TC-14-medium-16-letter-spacing);
+  line-height: var(--input-p1-title-TC-14-medium-16-line-height);
+}
+
+.part-base .medium {
+  font-family: var(--input-p1-title-TC-14-medium-16-font-family);
+  font-size: var(--input-p1-title-TC-14-medium-16-font-size);
+  font-style: var(--input-p1-title-TC-14-medium-16-font-style);
+  font-weight: var(--input-p1-title-TC-14-medium-16-font-weight);
+  letter-spacing: var(--input-p1-title-TC-14-medium-16-letter-spacing);
+  line-height: var(--input-p1-title-TC-14-medium-16-line-height);
+}
+
+.part-base .small {
+  font-family: var(--input-p2-title-TC-13-medium-16-font-family);
+  font-size: var(--input-p2-title-TC-13-medium-16-font-size);
+  font-style: var(--input-p2-title-TC-13-medium-16-font-style);
+  font-weight: var(--input-p2-title-TC-13-medium-16-font-weight);
+  letter-spacing: var(--input-p2-title-TC-13-medium-16-letter-spacing);
+  line-height: var(--input-p2-title-TC-13-medium-16-line-height);
+}
+
+.part-base .size-large {
+  padding: 12px;
+}
+
+.part-base .size-medium {
+  padding: 8px 12px;
+}
+
+.part-base .type-single-line {
+  flex: 0 0 auto;
+}
+
+.part-base .type-multi-line {
+  flex: 1;
+  flex-grow: 1;
+}
+
+.part-base .size-small.type-single-line {
+  padding: 4px 12px;
+}
+
+.part-base .type-multi-line.size-small {
+  padding: 6px 12px;
+}
+
+.part-base .field.size-medium .label-text {
+  padding: 2px 0px 0px;
+}
+
+.part-base .field.type-single-line .label-text {
+  align-items: center;
+  padding: 2px 0px 0px;
+}
+
+.part-base .field.type-multi-line .label-text {
+  align-items: flex-start;
+  align-self: stretch;
+  overflow-y: scroll;
+}
+
+.part-base .field.size-large .label {
+  font-family: var(--input-p1-text-17-regular-22-16-font-family);
+  font-size: var(--input-p1-text-17-regular-22-16-font-size);
+  font-style: var(--input-p1-text-17-regular-22-16-font-style);
+  font-weight: var(--input-p1-text-17-regular-22-16-font-weight);
+  letter-spacing: var(--input-p1-text-17-regular-22-16-letter-spacing);
+  line-height: var(--input-p1-text-17-regular-22-16-line-height);
+}
+
+.part-base .field.size-small .label {
+  font-family: var(--input-p2-text-15-regular-22-16-font-family);
+  font-size: var(--input-p2-text-15-regular-22-16-font-size);
+  font-style: var(--input-p2-text-15-regular-22-16-font-style);
+  font-weight: var(--input-p2-text-15-regular-22-16-font-weight);
+  letter-spacing: var(--input-p2-text-15-regular-22-16-letter-spacing);
+  line-height: var(--input-p2-text-15-regular-22-16-line-height);
+}
+
+.part-base .field.size-medium .label {
+  font-family: var(--input-p1-text-17-regular-22-16-font-family);
+  font-size: var(--input-p1-text-17-regular-22-16-font-size);
+  font-style: var(--input-p1-text-17-regular-22-16-font-style);
+  font-weight: var(--input-p1-text-17-regular-22-16-font-weight);
+  letter-spacing: var(--input-p1-text-17-regular-22-16-letter-spacing);
+  line-height: var(--input-p1-text-17-regular-22-16-line-height);
+}
+
+.part-base .field.type-single-line .label {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  display: -webkit-box;
+  height: 22px;
+  margin-top: -1px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.part-base .field.type-multi-line .label {
+  align-self: stretch;
+}
+
+.part-base .field.size-medium .placeholder-hint {
+  padding: 2px 0px 0px;
+}
+
+.part-base .field.type-single-line .placeholder-hint {
+  align-items: center;
+  padding: 2px 0px 0px;
+}
+
+.part-base .field.type-multi-line .placeholder-hint {
+  align-items: flex-start;
+  align-self: stretch;
+}
+
+.part-base .field.size-large .label-hint {
+  font-family: var(--input-p1-text-17-regular-22-16-font-family);
+  font-size: var(--input-p1-text-17-regular-22-16-font-size);
+  font-style: var(--input-p1-text-17-regular-22-16-font-style);
+  font-weight: var(--input-p1-text-17-regular-22-16-font-weight);
+  letter-spacing: var(--input-p1-text-17-regular-22-16-letter-spacing);
+  line-height: var(--input-p1-text-17-regular-22-16-line-height);
+}
+
+.part-base .field.size-small .label-hint {
+  font-family: var(--input-p2-text-15-regular-22-16-font-family);
+  font-size: var(--input-p2-text-15-regular-22-16-font-size);
+  font-style: var(--input-p2-text-15-regular-22-16-font-style);
+  font-weight: var(--input-p2-text-15-regular-22-16-font-weight);
+  letter-spacing: var(--input-p2-text-15-regular-22-16-letter-spacing);
+  line-height: var(--input-p2-text-15-regular-22-16-line-height);
+}
+
+.part-base .field.size-medium .label-hint {
+  font-family: var(--input-p1-text-17-regular-22-16-font-family);
+  font-size: var(--input-p1-text-17-regular-22-16-font-size);
+  font-style: var(--input-p1-text-17-regular-22-16-font-style);
+  font-weight: var(--input-p1-text-17-regular-22-16-font-weight);
+  letter-spacing: var(--input-p1-text-17-regular-22-16-letter-spacing);
+  line-height: var(--input-p1-text-17-regular-22-16-line-height);
+}
+
+.part-base .field.type-single-line .label-hint {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  display: -webkit-box;
+  height: 22px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.part-base .field.type-multi-line .label-hint {
+  align-self: stretch;
+}

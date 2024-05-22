@@ -1,0 +1,286 @@
+.nav {
+  align-items: flex-start;
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 150px;
+  position: relative;
+  width: 1198px;
+}
+
+.nav .text-wrapper-3 {
+  margin-top: -1px;
+  position: relative;
+  text-align: center;
+  width: 96px;
+}
+
+.nav .text-wrapper-4 {
+  margin-top: -1px;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.nav .text-wrapper-5 {
+  margin-top: -1px;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.nav .text-wrapper-6 {
+  margin-top: -1px;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.nav .save-run-2 {
+  margin-top: -1px;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.nav .property-1-source {
+  color: var(--primary-heading);
+  font-family: var(--nav-text-font-family);
+  font-size: var(--nav-text-font-size);
+  font-style: var(--nav-text-font-style);
+  font-weight: var(--nav-text-font-weight);
+  letter-spacing: var(--nav-text-letter-spacing);
+  line-height: var(--nav-text-line-height);
+  text-decoration: underline;
+}
+
+.nav .property-1-save {
+  color: var(--input-color);
+  font-family: var(--nav-simple-font-family);
+  font-size: var(--nav-simple-font-size);
+  font-style: var(--nav-simple-font-style);
+  font-weight: var(--nav-simple-font-weight);
+  letter-spacing: var(--nav-simple-letter-spacing);
+  line-height: var(--nav-simple-line-height);
+}
+
+.nav .property-1-trigger {
+  color: var(--input-color);
+  font-family: var(--nav-simple-font-family);
+  font-size: var(--nav-simple-font-size);
+  font-style: var(--nav-simple-font-style);
+  font-weight: var(--nav-simple-font-weight);
+  letter-spacing: var(--nav-simple-letter-spacing);
+  line-height: var(--nav-simple-line-height);
+}
+
+.nav .property-1-account {
+  color: var(--input-color);
+  font-family: var(--nav-simple-font-family);
+  font-size: var(--nav-simple-font-size);
+  font-style: var(--nav-simple-font-style);
+  font-weight: var(--nav-simple-font-weight);
+  letter-spacing: var(--nav-simple-letter-spacing);
+  line-height: var(--nav-simple-line-height);
+}
+
+.nav .property-1-response {
+  color: var(--input-color);
+  font-family: var(--nav-simple-font-family);
+  font-size: var(--nav-simple-font-size);
+  font-style: var(--nav-simple-font-style);
+  font-weight: var(--nav-simple-font-weight);
+  letter-spacing: var(--nav-simple-letter-spacing);
+  line-height: var(--nav-simple-line-height);
+}
+
+.nav .property-1-0-source {
+  color: var(--input-color);
+  font-family: var(--nav-simple-font-family);
+  font-size: var(--nav-simple-font-size);
+  font-style: var(--nav-simple-font-style);
+  font-weight: var(--nav-simple-font-weight);
+  letter-spacing: var(--nav-simple-letter-spacing);
+  line-height: var(--nav-simple-line-height);
+}
+
+.nav .property-1-0-save {
+  color: var(--input-color);
+  font-family: "Roboto", Helvetica;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.nav .property-1-0-trigger {
+  color: var(--input-color);
+  font-family: "Roboto", Helvetica;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.nav .property-1-0-account {
+  color: var(--primary-heading);
+  font-family: var(--nav-simple-font-family);
+  font-size: var(--nav-simple-font-size);
+  font-style: var(--nav-simple-font-style);
+  font-weight: var(--nav-simple-font-weight);
+  letter-spacing: var(--nav-simple-letter-spacing);
+  line-height: var(--nav-simple-line-height);
+}
+
+.nav .property-1-0-response {
+  color: var(--input-color);
+  font-family: "Roboto", Helvetica;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.nav .property-1-1-source {
+  color: var(--input-color);
+  font-family: "Roboto", Helvetica;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.nav .property-1-1-save {
+  color: var(--input-color);
+  font-family: "Roboto", Helvetica;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.nav .property-1-1-trigger {
+  color: var(--primary-heading);
+  font-family: var(--nav-text-font-family);
+  font-size: var(--nav-text-font-size);
+  font-style: var(--nav-text-font-style);
+  font-weight: var(--nav-text-font-weight);
+  letter-spacing: var(--nav-text-letter-spacing);
+  line-height: var(--nav-text-line-height);
+  text-decoration: underline;
+}
+
+.nav .property-1-1-account {
+  color: var(--input-color);
+  font-family: "Roboto", Helvetica;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.nav .property-1-1-response {
+  color: var(--input-color);
+  font-family: "Roboto", Helvetica;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.nav .property-1-2-source {
+  color: var(--input-color);
+  font-family: "Roboto", Helvetica;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.nav .property-1-2-save {
+  color: var(--input-color);
+  font-family: "Roboto", Helvetica;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.nav .property-1-2-trigger {
+  color: var(--input-color);
+  font-family: "Roboto", Helvetica;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.nav .property-1-2-account {
+  color: var(--input-color);
+  font-family: "Roboto", Helvetica;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.nav .property-1-2-response {
+  color: var(--primary-heading);
+  font-family: var(--nav-text-font-family);
+  font-size: var(--nav-text-font-size);
+  font-style: var(--nav-text-font-style);
+  font-weight: var(--nav-text-font-weight);
+  letter-spacing: var(--nav-text-letter-spacing);
+  line-height: var(--nav-text-line-height);
+  text-decoration: underline;
+}
+
+.nav .property-1-3-source {
+  color: var(--input-color);
+  font-family: "Roboto", Helvetica;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.nav .property-1-3-save {
+  color: var(--primary-heading);
+  font-family: var(--nav-text-font-family);
+  font-size: var(--nav-text-font-size);
+  font-style: var(--nav-text-font-style);
+  font-weight: var(--nav-text-font-weight);
+  letter-spacing: var(--nav-text-letter-spacing);
+  line-height: var(--nav-text-line-height);
+  text-decoration: underline;
+}
+
+.nav .property-1-3-trigger {
+  color: var(--input-color);
+  font-family: "Roboto", Helvetica;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.nav .property-1-3-account {
+  color: var(--input-color);
+  font-family: "Roboto", Helvetica;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.nav .property-1-3-response {
+  color: var(--input-color);
+  font-family: "Roboto", Helvetica;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: normal;
+}

@@ -1,0 +1,1 @@
+export { HeroOutlineCopy } from "./HeroOutlineCopy";

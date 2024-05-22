@@ -1,0 +1,258 @@
+.whatsapp-or {
+  position: relative;
+  width: 648px;
+}
+
+.whatsapp-or .group-2 {
+  height: 66px;
+  left: 0;
+  position: absolute;
+  top: 9px;
+  width: 200px;
+}
+
+.whatsapp-or .div-2 {
+  color: #000000;
+  font-family: "Noto Sans", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 0;
+}
+
+.whatsapp-or .data-destination {
+  align-items: center;
+  border: 2px solid;
+  border-color: #000000;
+  border-radius: 14px;
+  display: flex;
+  justify-content: space-between;
+  left: 0;
+  padding: 10px;
+  position: absolute;
+  top: 28px;
+  width: 198px;
+}
+
+.whatsapp-or .div-3 {
+  color: #000000;
+  font-family: "Noto Sans", Helvetica;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -2px;
+  position: relative;
+  width: fit-content;
+}
+
+.whatsapp-or .vector-7 {
+  height: 11.5px;
+  margin-right: -0.75px;
+  position: relative;
+  width: 21.5px;
+}
+
+.whatsapp-or .enter-inputs-select-wrapper {
+  align-items: center;
+  border: 2px solid;
+  border-color: #000000;
+  border-radius: 14px;
+  display: flex;
+  justify-content: space-around;
+  left: 443px;
+  padding: 10px 0px;
+  position: absolute;
+  top: 37px;
+  width: 198px;
+}
+
+.whatsapp-or .data-destination-2 {
+  align-items: center;
+  border: 2px solid;
+  border-color: #000000;
+  border-radius: 14px;
+  display: flex;
+  justify-content: space-between;
+  left: 224px;
+  padding: 10px 13px;
+  position: absolute;
+  top: 37px;
+  width: 198px;
+}
+
+.whatsapp-or .choose-condition {
+  color: #000000;
+  font-family: "Noto Sans", Helvetica;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -2px;
+  position: relative;
+  text-align: center;
+  width: 109px;
+}
+
+.whatsapp-or .data-destination-3 {
+  align-items: center;
+  border: 2px solid;
+  border-color: #000000;
+  border-radius: 14px;
+  display: flex;
+  left: 443px;
+  padding: 10px;
+  position: absolute;
+  top: 37px;
+  width: 198px;
+}
+
+.whatsapp-or .data-destination-4 {
+  align-items: center;
+  border: 2px solid;
+  border-color: #000000;
+  border-radius: 14px;
+  display: flex;
+  position: absolute;
+  top: 37px;
+  width: 198px;
+}
+
+.whatsapp-or .options {
+  align-items: flex-start;
+  background-color: #f2f2f2;
+  border: 2px solid;
+  border-color: #000000;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  left: 226px;
+  padding: 7px 8px;
+  position: absolute;
+  top: 75px;
+  width: 196px;
+}
+
+.whatsapp-or .div-4 {
+  color: #000000;
+  font-family: "Noto Sans", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 22.7px;
+  margin-top: -2px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.whatsapp-or .line {
+  height: 1px;
+  margin-right: -8px;
+  object-fit: cover;
+  position: relative;
+  width: 188px;
+}
+
+.whatsapp-or .div-5 {
+  color: #000000;
+  font-family: "Noto Sans", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 22.7px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.whatsapp-or .options-2 {
+  align-items: flex-start;
+  background-color: #f2f2f2;
+  border: 2px solid;
+  border-color: #000000;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  left: 2px;
+  padding: 7px 8px;
+  position: absolute;
+  top: 75px;
+  width: 196px;
+}
+
+.whatsapp-or .options-3 {
+  align-items: flex-start;
+  background-color: #f2f2f2;
+  border: 2px solid;
+  border-color: #000000;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 7px 8px;
+  position: absolute;
+  top: 75px;
+  width: 196px;
+}
+
+.whatsapp-or.default {
+  height: 95px;
+}
+
+.whatsapp-or.variant-3 {
+  height: 670px;
+}
+
+.whatsapp-or.variant-4 {
+  height: 670px;
+}
+
+.whatsapp-or.variant-2 {
+  height: 422px;
+}
+
+.whatsapp-or.default .data-destination-4 {
+  justify-content: space-around;
+  left: 443px;
+  padding: 10px 0px;
+}
+
+.whatsapp-or.variant-3 .data-destination-4 {
+  justify-content: space-around;
+  left: 443px;
+  padding: 10px;
+}
+
+.whatsapp-or.variant-4 .data-destination-4 {
+  justify-content: space-between;
+  left: 224px;
+  padding: 10px 13px;
+}
+
+.whatsapp-or.variant-2 .data-destination-4 {
+  justify-content: space-around;
+  left: 443px;
+  padding: 10px 0px;
+}
+
+.whatsapp-or.default .options-3 {
+  left: 2px;
+}
+
+.whatsapp-or.variant-3 .options-3 {
+  left: 226px;
+}
+
+.whatsapp-or.variant-4 .options-3 {
+  left: 2px;
+}
+
+.whatsapp-or.variant-2 .options-3 {
+  left: 2px;
+}

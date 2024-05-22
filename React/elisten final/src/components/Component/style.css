@@ -1,0 +1,62 @@
+.component {
+  align-items: center;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.component .sign {
+  font-family: "Roboto", Helvetica;
+  letter-spacing: 0;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.component.button-large {
+  background-color: #1569a6;
+  gap: 8px;
+  padding: 17px 16px;
+  width: 326px;
+}
+
+.component.button-small-primary {
+  background-color: #1569a6;
+  gap: 10px;
+  height: 40px;
+  padding: 10px 16px;
+  width: 104px;
+}
+
+.component.button-small-secondary {
+  border: 1px solid;
+  border-color: #1569a6;
+  gap: 10px;
+  height: 40px;
+  padding: 10px 16px;
+  width: 104px;
+}
+
+.component.button-large .sign {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 16px;
+  margin-top: -1px;
+  text-align: center;
+}
+
+.component.button-small-primary .sign {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.component.button-small-secondary .sign {
+  color: #1569a6;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: normal;
+}

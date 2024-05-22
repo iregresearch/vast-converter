@@ -1,0 +1,406 @@
+.connector-transport {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.connector-transport .div-14 {
+  background-color: #ffffff;
+  height: 1202px;
+  position: relative;
+  width: 1440px;
+}
+
+.connector-transport .sidebar-20 {
+  height: 1202px !important;
+  left: 0 !important;
+  position: absolute !important;
+  top: 0 !important;
+}
+
+.connector-transport .sidebar-21 {
+  background-color: #ffffff !important;
+  border-radius: 50px !important;
+}
+
+.connector-transport .sidebar-22 {
+  margin-bottom: unset !important;
+  margin-top: unset !important;
+}
+
+.connector-transport .sidebar-23 {
+  -webkit-text-stroke: 1px #0000003b !important;
+  color: var(--sidebar-background) !important;
+  margin-top: -2px !important;
+}
+
+.connector-transport .frame-59 {
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 10px;
+  height: 1118px;
+  left: 232px;
+  padding: 10px;
+  position: absolute;
+  top: 84px;
+  width: 1208px;
+}
+
+.connector-transport .set-up-a-new-6 {
+  color: transparent;
+  font-family: "Noto Sans", Helvetica;
+  font-size: 34px;
+  font-weight: 600;
+  height: 75px;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-right: -10px;
+  margin-top: -1px;
+  position: relative;
+  text-align: center;
+  width: 1198px;
+}
+
+.connector-transport .text-wrapper-47 {
+  color: #000000;
+}
+
+.connector-transport .text-wrapper-48 {
+  color: #fa6220;
+}
+
+.connector-transport .text-wrapper-49 {
+  color: #0c388a;
+  font-family: "Noto Sans", Helvetica;
+  font-size: 28px;
+  font-weight: 600;
+  height: 48px;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-right: -10px;
+  position: relative;
+  text-align: center;
+  width: 1198px;
+}
+
+.connector-transport .text-wrapper-50 {
+  color: #fa622099;
+  font-family: "Inter", Helvetica;
+  font-size: 20px;
+  font-weight: 700;
+  height: 53px;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-right: -10px;
+  position: relative;
+  text-align: center;
+  width: 1198px;
+}
+
+.connector-transport .navbar-4 {
+  margin-right: -10px !important;
+}
+
+.connector-transport .line-11 {
+  height: 3px;
+  position: relative;
+  width: 1180.04px;
+}
+
+.connector-transport .frame-60 {
+  align-items: flex-start;
+  display: flex;
+  gap: 16px;
+  height: 98px;
+  position: relative;
+  width: 1180px;
+}
+
+.connector-transport .part-title-4 {
+  align-items: flex-start;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 8px;
+  position: relative;
+}
+
+.connector-transport .inputs-5 {
+  align-items: flex-end;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 16px;
+  position: relative;
+  width: 100%;
+}
+
+.connector-transport .input-12 {
+  flex: 1 !important;
+  flex-grow: 1 !important;
+  width: unset !important;
+}
+
+.connector-transport .input-13 {
+  color: #202123 !important;
+  font-family: "Inter", Helvetica !important;
+  font-size: 17px !important;
+  font-style: unset !important;
+  font-weight: 400 !important;
+  letter-spacing: 0 !important;
+  line-height: 22px !important;
+}
+
+.connector-transport .input-14 {
+  color: #2c3236 !important;
+  font-family: "Inter", Helvetica !important;
+  font-size: 16px !important;
+  font-style: unset !important;
+  font-weight: 600 !important;
+  letter-spacing: 0 !important;
+  line-height: 24px !important;
+}
+
+.connector-transport .input-15 {
+  background-color: #ffffff !important;
+  border-color: #bdc0c4 !important;
+}
+
+.connector-transport .input-16 {
+  align-items: flex-start;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  flex-grow: 1;
+  position: relative;
+}
+
+.connector-transport .part-base-6 {
+  align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 4px;
+  position: relative;
+  width: 100%;
+}
+
+.connector-transport .title-text-7 {
+  align-self: stretch;
+  background: none;
+  border: none;
+  color: #000000;
+  flex: 1;
+  font-family: "Inter", Helvetica;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 24px;
+  margin-top: -1px;
+  padding: 4px 0px 0px;
+  position: relative;
+  width: 100%;
+}
+
+.connector-transport .field-8 {
+  align-items: center;
+  align-self: stretch;
+  background-color: var(--basicwhite);
+  border: 1px solid;
+  border-color: var(--linelinedark);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 40px;
+  justify-content: center;
+  padding: 8px 12px;
+  position: relative;
+  width: 100%;
+}
+
+.connector-transport .placeholder-hint-5 {
+  align-items: center;
+  align-self: stretch;
+  display: flex;
+  flex: 1;
+  flex-grow: 1;
+  justify-content: space-between;
+  padding: 2px 0px 0px;
+  position: relative;
+  width: 100%;
+}
+
+.connector-transport .label-hint-5 {
+  background: transparent;
+  border: none;
+  color: #d1d5db;
+  flex: 1;
+  font-family: "Inter", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  height: 24px;
+  letter-spacing: 0;
+  line-height: 22px;
+  margin-top: -2px;
+  padding: 0;
+  position: relative;
+  white-space: nowrap;
+}
+
+.connector-transport .material-symbols-4 {
+  height: 23px;
+  margin-top: -1px;
+  position: relative;
+  width: 24px;
+}
+
+.connector-transport .frame-61 {
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 80px 20px;
+  height: 740px;
+  justify-content: space-between;
+  margin-bottom: -10px;
+  padding: 20px 50px;
+  position: relative;
+  width: 1180px;
+}
+
+.connector-transport .gmail {
+  align-items: center;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #000000;
+  border-radius: 20px;
+  display: flex;
+  gap: 6px;
+  height: 100px;
+  padding: 13px 10px;
+  position: relative;
+  width: 500px;
+}
+
+.connector-transport .frame-62 {
+  align-items: flex-start;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 70px;
+  padding: 10px;
+  position: relative;
+  width: 70px;
+}
+
+.connector-transport .image-13 {
+  align-self: stretch;
+  flex: 1;
+  flex-grow: 1;
+  object-fit: cover;
+  position: relative;
+  width: 100%;
+}
+
+.connector-transport .frame-63 {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  height: 81px;
+  justify-content: center;
+  margin-bottom: -3.5px;
+  margin-top: -3.5px;
+  padding: 0px 10px;
+  position: relative;
+  width: 403px;
+}
+
+.connector-transport .frame-64 {
+  align-items: flex-start;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: -1.5px;
+  margin-right: -10px;
+  margin-top: -1.5px;
+  position: relative;
+  width: 393px;
+}
+
+.connector-transport .text-wrapper-51 {
+  align-self: stretch;
+  color: #000000;
+  font-family: var(--button-text-font-family);
+  font-size: var(--button-text-font-size);
+  font-style: var(--button-text-font-style);
+  font-weight: var(--button-text-font-weight);
+  letter-spacing: var(--button-text-letter-spacing);
+  line-height: var(--button-text-line-height);
+  margin-top: -1px;
+  position: relative;
+}
+
+.connector-transport .frame-65 {
+  align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  flex-wrap: wrap;
+  gap: 10px 10px;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+.connector-transport .text-wrapper-52 {
+  color: #000000;
+  flex: 1;
+  font-family: var(--card-text-font-family);
+  font-size: var(--card-text-font-size);
+  font-style: var(--card-text-font-style);
+  font-weight: var(--card-text-font-weight);
+  letter-spacing: var(--card-text-letter-spacing);
+  line-height: var(--card-text-line-height);
+  margin-top: -1px;
+  position: relative;
+}
+
+.connector-transport .image-14 {
+  align-self: stretch;
+  height: 45px;
+  object-fit: cover;
+  position: relative;
+  width: 100%;
+}
+
+.connector-transport .image-15 {
+  align-self: stretch;
+  flex: 1;
+  flex-grow: 1;
+  margin-bottom: -6px;
+  position: relative;
+  width: 100%;
+}
+
+.connector-transport .top-bar-16 {
+  left: 232px !important;
+  position: absolute !important;
+  top: 0 !important;
+  width: 1208px !important;
+}
+
+.connector-transport .top-bar-17 {
+  background-image: url(../../../static/img/shape-16-2.svg) !important;
+}
+
+.connector-transport .top-bar-18 {
+  width: 11.19px !important;
+}

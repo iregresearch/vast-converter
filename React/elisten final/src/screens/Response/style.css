@@ -1,0 +1,545 @@
+.response {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.response .div-9 {
+  background-color: #ffffff;
+  height: 1234px;
+  overflow: hidden;
+  position: relative;
+  width: 1440px;
+}
+
+.response .sidebar-instance {
+  height: 1234px !important;
+  left: 0 !important;
+  position: absolute !important;
+  top: 0 !important;
+}
+
+.response .design-component-instance-node {
+  background-color: #ffffff !important;
+  border-radius: 50px !important;
+}
+
+.response .sidebar-2 {
+  margin-bottom: unset !important;
+  margin-top: unset !important;
+}
+
+.response .sidebar-3 {
+  -webkit-text-stroke: 1px #0000003b !important;
+  color: var(--sidebar-background) !important;
+  margin-top: -2px !important;
+}
+
+.response .frame-13 {
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 10px;
+  height: 1150px;
+  left: 232px;
+  padding: 10px;
+  position: absolute;
+  top: 84px;
+  width: 1220px;
+}
+
+.response .set-up-a-new {
+  color: transparent;
+  font-family: "Noto Sans", Helvetica;
+  font-size: 34px;
+  font-weight: 600;
+  height: 75px;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+  text-align: center;
+  width: 1198px;
+}
+
+.response .span {
+  color: #000000;
+}
+
+.response .text-wrapper-12 {
+  color: #fa6220;
+}
+
+.response .text-wrapper-13 {
+  color: #0c388a;
+  font-family: "Noto Sans", Helvetica;
+  font-size: 28px;
+  font-weight: 600;
+  height: 48px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: relative;
+  text-align: center;
+  width: 1198px;
+}
+
+.response .p {
+  color: #fa622099;
+  font-family: "Inter", Helvetica;
+  font-size: 20px;
+  font-weight: 700;
+  height: 53px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: relative;
+  text-align: center;
+  width: 1198px;
+}
+
+.response .line-3 {
+  height: 3px;
+  position: relative;
+  width: 1180.04px;
+}
+
+.response .frame-14 {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 322px;
+  justify-content: center;
+  position: relative;
+  width: 1180px;
+}
+
+.response .overlap-group-wrapper {
+  height: 287.93px;
+  position: relative;
+  width: 1127.75px;
+}
+
+.response .overlap-2 {
+  height: 288px;
+  position: relative;
+  width: 1122px;
+}
+
+.response .block {
+  height: 288px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 1122px;
+}
+
+.response .overlap-group-2 {
+  height: 288px;
+  position: relative;
+}
+
+.response .rectangle-3 {
+  background-color: #ffffff;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-color: #0000005e;
+  border-left-style: solid;
+  border-left-width: 1px;
+  border-radius: 0px 0px 10px 10px;
+  border-right-style: solid;
+  border-right-width: 1px;
+  height: 232px;
+  left: 0;
+  position: absolute;
+  top: 55px;
+  width: 1121px;
+}
+
+.response .rectangle-4 {
+  background-color: #d9d9d930;
+  border-color: #0000005e;
+  border-left-style: solid;
+  border-left-width: 1px;
+  border-radius: 10px 10px 0px 0px;
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  height: 77px;
+  left: 1px;
+  position: absolute;
+  top: 0;
+  width: 1121px;
+}
+
+.response .text-wrapper-14 {
+  color: var(--sidebar-background);
+  font-family: "Inter", Helvetica;
+  font-size: 22px;
+  font-weight: 700;
+  left: 78px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 23px;
+}
+
+.response .send-email-with {
+  color: var(--sidebar-background);
+  font-family: var(--sidebar-text-font-family);
+  font-size: var(--sidebar-text-font-size);
+  font-style: var(--sidebar-text-font-style);
+  font-weight: var(--sidebar-text-font-weight);
+  left: 80px;
+  letter-spacing: var(--sidebar-text-letter-spacing);
+  line-height: var(--sidebar-text-line-height);
+  position: absolute;
+  text-align: center;
+  top: 111px;
+  width: 192px;
+}
+
+.response .text-wrapper-15 {
+  color: var(--sidebar-background);
+  font-family: var(--input-text-font-family);
+  font-size: var(--input-text-font-size);
+  font-style: var(--input-text-font-style);
+  font-weight: var(--input-text-font-weight);
+  left: 93px;
+  letter-spacing: var(--input-text-letter-spacing);
+  line-height: var(--input-text-line-height);
+  position: absolute;
+  text-align: center;
+  top: 132px;
+  white-space: nowrap;
+}
+
+.response .image-2 {
+  height: 40px;
+  left: 22px;
+  object-fit: cover;
+  position: absolute;
+  top: 112px;
+  width: 54px;
+}
+
+.response .frame-15 {
+  align-items: center;
+  display: flex;
+  gap: 20px;
+  left: 810px;
+  position: absolute;
+  top: 121px;
+  width: 268px;
+}
+
+.response .group-4 {
+  height: 22px;
+  position: relative;
+  width: 54px;
+}
+
+.response .img-2 {
+  height: 20px;
+  left: 0;
+  position: absolute;
+  top: 1px;
+  width: 20px;
+}
+
+.response .text-wrapper-16 {
+  color: var(--sidebar-background);
+  font-family: "Inter", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  left: 26px;
+  letter-spacing: 0;
+  line-height: 22px;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  white-space: nowrap;
+}
+
+.response .group-5 {
+  height: 22px;
+  position: relative;
+  width: 86px;
+}
+
+.response .group-6 {
+  height: 22px;
+  position: relative;
+  width: 88px;
+}
+
+.response .text-wrapper-17 {
+  color: var(--sidebar-background);
+  font-family: "Inter", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  left: 23px;
+  letter-spacing: 0;
+  line-height: 22px;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  white-space: nowrap;
+}
+
+.response .group-7 {
+  height: 22px;
+  position: relative;
+  width: 66px;
+}
+
+.response .group-8 {
+  height: 22px;
+  left: 23px;
+  position: absolute;
+  top: 0;
+  width: 45px;
+}
+
+.response .text-wrapper-18 {
+  color: var(--sidebar-background);
+  font-family: "Inter", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 22px;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  white-space: nowrap;
+}
+
+.response .group-9 {
+  height: 20px;
+  margin-right: -16px;
+  position: relative;
+  width: 20px;
+}
+
+.response .line-4 {
+  height: 1px;
+  left: 68px;
+  object-fit: cover;
+  position: absolute;
+  top: 178px;
+  width: 986px;
+}
+
+.response .frame-16 {
+  align-items: flex-start;
+  display: flex;
+  gap: 10px;
+  left: 59px;
+  padding: 10px;
+  position: absolute;
+  top: 200px;
+  width: 1035px;
+}
+
+.response .frame-17 {
+  align-items: center;
+  border: 2px solid;
+  border-color: var(--sidebar-background);
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 10px;
+  justify-content: center;
+  padding: 10px 20px;
+  position: relative;
+}
+
+.response .text-wrapper-19 {
+  color: var(--sidebar-background);
+  font-family: "Inter", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 22px;
+  margin-top: -2px;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.response .frame-18 {
+  align-items: flex-start;
+  display: flex;
+  gap: 45px;
+  justify-content: flex-end;
+  margin-right: -8px;
+  padding: 0px 30px;
+  position: relative;
+  width: 811px;
+}
+
+.response .frame-19 {
+  align-items: center;
+  background-color: var(--sidebar-background);
+  border: 1px solid;
+  border-color: #00000073;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 10px;
+  justify-content: center;
+  padding: 10px 20px;
+  position: relative;
+}
+
+.response .text-wrapper-20 {
+  color: #ffffff;
+  font-family: "Inter", Helvetica;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 22px;
+  margin-top: -1px;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.response .frame-20 {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 293px;
+  justify-content: center;
+  position: relative;
+  width: 1180px;
+}
+
+.response .group-10 {
+  height: 232.43px;
+  position: relative;
+  width: 1125px;
+}
+
+.response .overlap-group-3 {
+  background-image: url(../../../static/img/block.png);
+  background-size: 100% 100%;
+  height: 232px;
+  position: relative;
+  width: 1121px;
+}
+
+.response .create-PDF-file {
+  color: var(--sidebar-background);
+  font-family: var(--sidebar-text-font-family);
+  font-size: var(--sidebar-text-font-size);
+  font-style: var(--sidebar-text-font-style);
+  font-weight: var(--sidebar-text-font-weight);
+  left: 92px;
+  letter-spacing: var(--sidebar-text-letter-spacing);
+  line-height: var(--sidebar-text-line-height);
+  position: absolute;
+  top: 56px;
+  width: 192px;
+}
+
+.response .text-wrapper-21 {
+  color: var(--sidebar-background);
+  font-family: var(--input-text-font-family);
+  font-size: var(--input-text-font-size);
+  font-style: var(--input-text-font-style);
+  font-weight: var(--input-text-font-weight);
+  left: 93px;
+  letter-spacing: var(--input-text-letter-spacing);
+  line-height: var(--input-text-line-height);
+  position: absolute;
+  text-align: center;
+  top: 76px;
+  white-space: nowrap;
+}
+
+.response .frame-21 {
+  align-items: center;
+  display: flex;
+  gap: 20px;
+  left: 810px;
+  position: absolute;
+  top: 66px;
+  width: 268px;
+}
+
+.response .line-5 {
+  height: 1px;
+  left: 68px;
+  object-fit: cover;
+  position: absolute;
+  top: 123px;
+  width: 986px;
+}
+
+.response .frame-22 {
+  align-items: flex-start;
+  display: flex;
+  gap: 10px;
+  left: 59px;
+  padding: 10px;
+  position: absolute;
+  top: 144px;
+  width: 1035px;
+}
+
+.response .frame-23 {
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 20px;
+  display: flex;
+  height: 188px;
+  justify-content: space-between;
+  padding: 13px 100px;
+  position: relative;
+  width: 1164px;
+}
+
+.response .frame-24 {
+  align-items: center;
+  background-color: var(--sidebar-background);
+  border-radius: 20px;
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  padding: 10px 20px;
+  position: relative;
+  width: 157px;
+}
+
+.response .text-wrapper-22 {
+  color: var(--sidarbar-white);
+  font-family: "Roboto", Helvetica;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.response .top-bar-instance {
+  left: 232px !important;
+  position: absolute !important;
+  top: 0 !important;
+  width: 1208px !important;
+}
+
+.response .top-bar-2 {
+  background-image: url(../../../static/img/shape-3.svg) !important;
+}
+
+.response .top-bar-3 {
+  width: 11.19px !important;
+}

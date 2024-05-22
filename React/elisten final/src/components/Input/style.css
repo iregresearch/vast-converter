@@ -1,0 +1,37 @@
+.input {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 200px;
+}
+
+.input .class {
+  color: var(--accentaccent-1dark) !important;
+}
+
+.input .class-2 {
+  color: var(--brandprimary) !important;
+}
+
+.input .class-3 {
+  align-self: stretch !important;
+  flex: 1 !important;
+  flex-grow: 1 !important;
+  height: unset !important;
+  width: 100% !important;
+}
+
+.input .class-4 {
+  align-self: stretch !important;
+  flex: 0 0 auto !important;
+  width: 100% !important;
+}
+
+.input.disabled {
+  opacity: 0.8;
+}
+
+.input.type-4-multi-line {
+  height: 144px;
+}

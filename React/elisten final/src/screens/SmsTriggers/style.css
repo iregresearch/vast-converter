@@ -1,0 +1,394 @@
+.SMS-triggers {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.SMS-triggers .div-19 {
+  background-color: #ffffff;
+  height: 1207px;
+  position: relative;
+  width: 1440px;
+}
+
+.SMS-triggers .sidebar-44 {
+  height: 1207px !important;
+  left: 0 !important;
+  min-width: unset !important;
+  position: absolute !important;
+  top: 0 !important;
+}
+
+.SMS-triggers .sidebar-45 {
+  background-color: #ffffff !important;
+  border-radius: 50px !important;
+}
+
+.SMS-triggers .sidebar-46 {
+  margin-bottom: unset !important;
+  margin-top: unset !important;
+}
+
+.SMS-triggers .sidebar-47 {
+  -webkit-text-stroke: 1px #0000003b !important;
+  color: var(--sidebar-background) !important;
+  margin-top: -2px !important;
+}
+
+.SMS-triggers .frame-106 {
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 10px;
+  height: 996px;
+  left: 232px;
+  padding: 10px;
+  position: absolute;
+  top: 84px;
+  width: 1208px;
+}
+
+.SMS-triggers .set-up-a-new-9 {
+  color: transparent;
+  font-family: "Noto Sans", Helvetica;
+  font-size: 34px;
+  font-weight: 600;
+  height: 75px;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-right: -10px;
+  margin-top: -1px;
+  position: relative;
+  text-align: center;
+  width: 1198px;
+}
+
+.SMS-triggers .text-wrapper-86 {
+  color: #000000;
+}
+
+.SMS-triggers .text-wrapper-87 {
+  color: #fa6220;
+}
+
+.SMS-triggers .text-wrapper-88 {
+  color: #0c388a;
+  font-family: "Noto Sans", Helvetica;
+  font-size: 28px;
+  font-weight: 600;
+  height: 48px;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-right: -10px;
+  position: relative;
+  text-align: center;
+  width: 1198px;
+}
+
+.SMS-triggers .text-wrapper-89 {
+  color: #fa622099;
+  font-family: "Inter", Helvetica;
+  font-size: 20px;
+  font-weight: 700;
+  height: 53px;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-right: -10px;
+  position: relative;
+  text-align: center;
+  width: 1198px;
+}
+
+.SMS-triggers .navbar-7 {
+  margin-right: -10px !important;
+}
+
+.SMS-triggers .line-16 {
+  height: 3px;
+  position: relative;
+  width: 1180.04px;
+}
+
+.SMS-triggers .frame-107 {
+  align-items: center;
+  display: flex;
+  gap: 80px;
+  height: 95px;
+  justify-content: space-around;
+  padding: 30px 20px;
+  position: relative;
+  width: 1164px;
+}
+
+.SMS-triggers .frame-108 {
+  align-items: center;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #000000;
+  border-radius: 20px;
+  display: flex;
+  gap: 6px;
+  margin-bottom: -20.5px;
+  margin-top: -20.5px;
+  padding: 13px 10px;
+  position: relative;
+  width: 890px;
+}
+
+.SMS-triggers .frame-109 {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  height: 50px;
+  position: relative;
+  width: 50px;
+}
+
+.SMS-triggers .image-17 {
+  align-self: stretch;
+  flex: 1;
+  flex-grow: 1;
+  object-fit: cover;
+  position: relative;
+}
+
+.SMS-triggers .frame-110 {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  position: relative;
+  width: 642px;
+}
+
+.SMS-triggers .text-wrapper-90 {
+  color: #000000;
+  font-family: var(--card-text-font-family);
+  font-size: var(--card-text-font-size);
+  font-style: var(--card-text-font-style);
+  font-weight: var(--card-text-font-weight);
+  letter-spacing: var(--card-text-letter-spacing);
+  line-height: var(--card-text-line-height);
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.SMS-triggers .frame-111 {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 44px;
+  justify-content: space-around;
+  position: relative;
+  width: 1180px;
+}
+
+.SMS-triggers .frame-112 {
+  align-items: center;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: -1.5px;
+  margin-top: -1.5px;
+  padding: 10px;
+  position: relative;
+}
+
+.SMS-triggers .text-wrapper-91 {
+  color: var(--primary-heading);
+  font-family: "Inter", Helvetica;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+  width: fit-content;
+}
+
+.SMS-triggers .AND-group-wrapper {
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 20px;
+  display: flex;
+  gap: 6px;
+  height: 421px;
+  justify-content: center;
+  padding: 13px 10px;
+  position: relative;
+  width: 1164px;
+}
+
+.SMS-triggers .AND-group {
+  align-items: flex-start;
+  background-color: #ffffff;
+  border: 3px solid;
+  border-color: #000000;
+  display: inline-flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  height: 347px;
+  justify-content: center;
+  padding: 15px 14px;
+  position: relative;
+}
+
+.SMS-triggers .whatsapp-or-operatoins {
+  margin-top: -1px !important;
+}
+
+.SMS-triggers .whatsapp-or-instance {
+  height: 71px !important;
+}
+
+.SMS-triggers .whatsapp-or-operatoins-instance {
+  font-size: 14px !important;
+  line-height: 22.7px !important;
+  white-space: nowrap !important;
+}
+
+.SMS-triggers .whatsapp-or-2 {
+  justify-content: unset !important;
+  padding: 10px 9px !important;
+}
+
+.SMS-triggers .whatsapp-or-3 {
+  padding: 10px 12px !important;
+}
+
+.SMS-triggers .design-component-instance-node-3 {
+  text-align: unset !important;
+}
+
+.SMS-triggers .design-component-instance-node-4 {
+  margin-top: -10px !important;
+}
+
+.SMS-triggers .and-operation-instance {
+  height: 38px !important;
+  top: 37px !important;
+  width: 198px !important;
+}
+
+.SMS-triggers .and-operation-2 {
+  left: unset !important;
+  position: relative !important;
+  top: unset !important;
+}
+
+.SMS-triggers .and-operation-3 {
+  justify-content: unset !important;
+  padding: 10px 14px !important;
+}
+
+.SMS-triggers .whatsapp-or-4 {
+  justify-content: unset !important;
+  padding: 10px 12px !important;
+}
+
+.SMS-triggers .frame-113 {
+  align-items: center;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 14px;
+  margin-bottom: -1px;
+  margin-top: -10px;
+  padding: 6px 0px;
+  position: relative;
+}
+
+.SMS-triggers .data-destination-10 {
+  align-items: center;
+  border: 2px solid;
+  border-color: #000000;
+  border-radius: 14px;
+  display: flex;
+  padding: 4px 10px;
+  position: relative;
+  width: 92px;
+}
+
+.SMS-triggers .text-wrapper-92 {
+  color: #000000;
+  font-family: "Noto Sans", Helvetica;
+  font-size: 32px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -2px;
+  position: relative;
+  text-align: center;
+  width: fit-content;
+}
+
+.SMS-triggers .text-wrapper-93 {
+  color: #000000;
+  font-family: "Noto Sans", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-left: -1px;
+  position: relative;
+  text-align: center;
+  width: fit-content;
+}
+
+.SMS-triggers .frame-114 {
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 20px;
+  display: flex;
+  height: 148px;
+  justify-content: space-between;
+  margin-bottom: -22px;
+  padding: 13px 100px;
+  position: relative;
+  width: 1164px;
+}
+
+.SMS-triggers .frame-115 {
+  align-items: center;
+  background-color: var(--sidebar-background);
+  border-radius: 20px;
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  padding: 10px 20px;
+  position: relative;
+  width: 157px;
+}
+
+.SMS-triggers .text-wrapper-94 {
+  color: var(--sidarbar-white);
+  font-family: "Roboto", Helvetica;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.SMS-triggers .top-bar-32 {
+  left: 232px !important;
+  position: absolute !important;
+  top: 0 !important;
+  width: 1208px !important;
+}
+
+.SMS-triggers .top-bar-33 {
+  background-image: url(../../../static/img/shape-93.svg) !important;
+}
+
+.SMS-triggers .top-bar-34 {
+  width: 11.19px !important;
+}

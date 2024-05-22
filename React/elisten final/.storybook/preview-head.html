@@ -1,0 +1,158 @@
+<style>
+  @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+  * {
+    -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+  }
+  html,
+  body {
+    margin: 0px;
+    height: 100%;
+  }
+  /* a blue color as a generic focus style */
+  button:focus-visible {
+    outline: 2px solid #4a90e2 !important;
+    outline: -webkit-focus-ring-color auto 5px !important;
+  }
+  a {
+    text-decoration: none;
+  }
+
+  :root {
+    --accentaccent-1: rgba(232, 59, 37, 1);
+    --accentaccent-1dark: rgba(191, 32, 11, 1);
+    --basicwhite: rgba(255, 255, 255, 1);
+    --body-s-font-family: "Roboto", Helvetica;
+    --body-s-font-size: 14px;
+    --body-s-font-style: normal;
+    --body-s-font-weight: 400;
+    --body-s-letter-spacing: 0px;
+    --body-s-line-height: 139.9999976158142%;
+    --body-XS-font-family: "Roboto", Helvetica;
+    --body-XS-font-size: 12px;
+    --body-XS-font-style: normal;
+    --body-XS-font-weight: 400;
+    --body-XS-letter-spacing: 0px;
+    --body-XS-line-height: 139.9999976158142%;
+    --brandhoverlight: rgba(242, 242, 242, 1);
+    --brandprimary: rgba(0, 92, 137, 1);
+    --brandprimarymid: rgba(10, 123, 172, 1);
+    --browse-background: rgba(33, 62, 214, 0.85);
+    --button-text-font-family: "Roboto", Helvetica;
+    --button-text-font-size: 24px;
+    --button-text-font-style: normal;
+    --button-text-font-weight: 700;
+    --button-text-letter-spacing: 0px;
+    --button-text-line-height: normal;
+    --card-text-font-family: "Roboto", Helvetica;
+    --card-text-font-size: 20px;
+    --card-text-font-style: normal;
+    --card-text-font-weight: 300;
+    --card-text-letter-spacing: 0px;
+    --card-text-line-height: normal;
+    --coolgray-10: rgba(242, 244, 248, 1);
+    --coolgray-30: rgba(193, 199, 205, 1);
+    --coolgray-60: rgba(105, 112, 119, 1);
+    --coolgray-90: rgba(33, 39, 42, 1);
+    --defaultwhite: rgba(255, 255, 255, 1);
+    --heading-text-font-family: "Noto Sans", Helvetica;
+    --heading-text-font-size: 28px;
+    --heading-text-font-style: normal;
+    --heading-text-font-weight: 600;
+    --heading-text-letter-spacing: 0px;
+    --heading-text-line-height: normal;
+    --input-color: rgba(94, 94, 94, 1);
+    --input-p1-help-12-regular-16-font-family: "Overpass", Helvetica;
+    --input-p1-help-12-regular-16-font-size: 12px;
+    --input-p1-help-12-regular-16-font-style: normal;
+    --input-p1-help-12-regular-16-font-weight: 400;
+    --input-p1-help-12-regular-16-letter-spacing: 0px;
+    --input-p1-help-12-regular-16-line-height: 16px;
+    --input-p1-text-17-regular-22-16-font-family: "Overpass", Helvetica;
+    --input-p1-text-17-regular-22-16-font-size: 17px;
+    --input-p1-text-17-regular-22-16-font-style: normal;
+    --input-p1-text-17-regular-22-16-font-weight: 400;
+    --input-p1-text-17-regular-22-16-letter-spacing: 0px;
+    --input-p1-text-17-regular-22-16-line-height: 22px;
+    --input-p1-title-TC-14-medium-16-font-family: "Overpass", Helvetica;
+    --input-p1-title-TC-14-medium-16-font-size: 14px;
+    --input-p1-title-TC-14-medium-16-font-style: normal;
+    --input-p1-title-TC-14-medium-16-font-weight: 500;
+    --input-p1-title-TC-14-medium-16-letter-spacing: 0px;
+    --input-p1-title-TC-14-medium-16-line-height: 16px;
+    --input-p2-text-15-regular-22-16-font-family: "Overpass", Helvetica;
+    --input-p2-text-15-regular-22-16-font-size: 15px;
+    --input-p2-text-15-regular-22-16-font-style: normal;
+    --input-p2-text-15-regular-22-16-font-weight: 400;
+    --input-p2-text-15-regular-22-16-letter-spacing: 0px;
+    --input-p2-text-15-regular-22-16-line-height: 22px;
+    --input-p2-title-TC-13-medium-16-font-family: "Overpass", Helvetica;
+    --input-p2-title-TC-13-medium-16-font-size: 13px;
+    --input-p2-title-TC-13-medium-16-font-style: normal;
+    --input-p2-title-TC-13-medium-16-font-weight: 500;
+    --input-p2-title-TC-13-medium-16-letter-spacing: 0px;
+    --input-p2-title-TC-13-medium-16-line-height: 16px;
+    --input-text-font-family: "Inter", Helvetica;
+    --input-text-font-size: 14px;
+    --input-text-font-style: normal;
+    --input-text-font-weight: 400;
+    --input-text-letter-spacing: 0px;
+    --input-text-line-height: 22px;
+    --linelinedark: rgba(189, 192, 196, 1);
+    --nav-simple-font-family: "Roboto", Helvetica;
+    --nav-simple-font-size: 22px;
+    --nav-simple-font-style: normal;
+    --nav-simple-font-weight: 700;
+    --nav-simple-letter-spacing: 0px;
+    --nav-simple-line-height: normal;
+    --nav-text-font-family: "Roboto", Helvetica;
+    --nav-text-font-size: 22px;
+    --nav-text-font-style: normal;
+    --nav-text-font-weight: 700;
+    --nav-text-letter-spacing: 0px;
+    --nav-text-line-height: normal;
+    --overpass-headers-h5-18-semibold-24-font-family: "Overpass", Helvetica;
+    --overpass-headers-h5-18-semibold-24-font-size: 18px;
+    --overpass-headers-h5-18-semibold-24-font-style: normal;
+    --overpass-headers-h5-18-semibold-24-font-weight: 600;
+    --overpass-headers-h5-18-semibold-24-letter-spacing: 0px;
+    --overpass-headers-h5-18-semibold-24-line-height: 24px;
+    --overpass-headers-h6-16-semibold-24-font-family: "Overpass", Helvetica;
+    --overpass-headers-h6-16-semibold-24-font-size: 16px;
+    --overpass-headers-h6-16-semibold-24-font-style: normal;
+    --overpass-headers-h6-16-semibold-24-font-weight: 600;
+    --overpass-headers-h6-16-semibold-24-letter-spacing: 0px;
+    --overpass-headers-h6-16-semibold-24-line-height: 24px;
+    --overpass-paragraph-p2-1-14-regular-18-14-font-family: "Overpass", Helvetica;
+    --overpass-paragraph-p2-1-14-regular-18-14-font-size: 14px;
+    --overpass-paragraph-p2-1-14-regular-18-14-font-style: normal;
+    --overpass-paragraph-p2-1-14-regular-18-14-font-weight: 400;
+    --overpass-paragraph-p2-1-14-regular-18-14-letter-spacing: 0px;
+    --overpass-paragraph-p2-1-14-regular-18-14-line-height: 18px;
+    --primary-heading: rgba(3, 30, 171, 1);
+    --sidarbar-white: rgba(255, 255, 255, 1);
+    --sidebar-background: rgba(30, 67, 165, 1);
+    --sidebar-text-font-family: "Roboto", Helvetica;
+    --sidebar-text-font-size: 16px;
+    --sidebar-text-font-style: normal;
+    --sidebar-text-font-weight: 700;
+    --sidebar-text-letter-spacing: 0px;
+    --sidebar-text-line-height: normal;
+    --sidebar-white-font-family: "Roboto", Helvetica;
+    --sidebar-white-font-size: 16px;
+    --sidebar-white-font-style: normal;
+    --sidebar-white-font-weight: 700;
+    --sidebar-white-letter-spacing: 0px;
+    --sidebar-white-line-height: normal;
+    --small-btn-txt-font-family: "Inter", Helvetica;
+    --small-btn-txt-font-size: 14px;
+    --small-btn-txt-font-style: normal;
+    --small-btn-txt-font-weight: 700;
+    --small-btn-txt-letter-spacing: 0px;
+    --small-btn-txt-line-height: 22px;
+    --texttextlightextra: rgba(155, 159, 165, 1);
+    --texttextmid: rgba(44, 50, 54, 1);
+    --texttextmidlight: rgba(84, 89, 95, 1);
+    --texttextnormal: rgba(32, 33, 35, 1);
+  }
+</style>
